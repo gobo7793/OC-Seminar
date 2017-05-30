@@ -27,66 +27,91 @@
 \pagebreak
 
 \section{Einführung in genetische Algorithmen}
+\label{sec:EinfuhrungGA}
 
-Einführung in genetische Algorithmen, wie funktionieren die Überhaupt
+	Genetische Algorithmen sind genauso wie andere Evolutionäre Algorithmen im Allgemeinen aus der Biologie übernommen worden. Wie der Name schon aussagt, basieren sie auf dem Prinzip der Evolution, bei der basierend auf einer Ausgangspopulation möglicher Lösungen neue Kinder erzeugt werden, welche dann die Vorfahren in der Population verdrängen. Welche Vorfahren, oder gar die erzeugten Kinder, dabei konkret verdrängt werden, entscheidet sich basierend auf einer Fitness-Funktion, bei der die gefundenen Lösungen der Population Evaluiert werden und anschließend die nur die besten in der Population verweilen dürfen.
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=.8\columnwidth]{./Figures/Organic-Computing.png}
+		\caption{Grundlegender Ablauf eines genetischen Algorithmus}
+		\label{fig:abb1}
+	\end{figure}
+	
+	Die wichtigen Parameter eines GA selbst sind zum einen die Selektion der Gene, deren Crossover zur Erzeugung neuer Kinder, sowie die Durchführung anschließender Mutationen. In dieser Seminararbeit soll ein kleiner Überblick über verschiedene Crossover-Operationen gegeben werden, welche maßgeblich über die Qualität und Effizienz eines GA entscheiden.
 
 \section{Klassifizierungen von Crossover-Operationen}
+\label{sec:KlassifizierungCrossover}
 
 Klassifizierung von Crossover
 
 \section{Eindimensionale Repräsentation}
+\label{sec:EindimensionaleRep}
 
 Eindimensionales
 
 \subsection{Binäre Codierung}
+\label{sec:BinCod}
 
 Binär
 
 \subsection{Codierung als Ganzzahlen}
+\label{sec:IntCod}
 
 Integer
 
 \subsubsection{Operationen für ganzzahlige Werte}
+\label{sec:IntOp}
 
 Integer, die nicht als Binär gehandhabt werden
 
 \subsubsection{Operationen für Permutationen}
+\label{sec:PermOp}
 
 Permutationen von Integer-Werten (zB TSP)
 
 \subsection{Codierung als Fließkommazahl}
+\label{sec:FloatCod}
 
 Fließkommazahlen
 
 \subsection{Codierung als Zeichenkette}
+\label{sec:StrCod}
 
 String-Codierungen
 
 \section{Mehrdimensionale Repräsentation}
+\label{sec:MehrdimRep}
 
 Mehrdimensionale
 
 \subsection{Codierung als Baum}
+\label{sec:BaumCod}
 
 Bäume und deren nutzen
 
 \subsection{Codierung als Array}
+\label{sec:ArrayCod}
 
 Array und deren Nutzen
 
 \subsection{Weitere Codierungen für mehrdimensionale Daten}
+\label{sec:WeitereMehrdimensionale}
 
 Kurz weiteres wie Matrizen und modularisierte Codierung
 
 \section{Anwendungsspezifische Codierung der Daten}
+\label{sec:AnwendungsspezifischeCod}
 
 Kurz anwendungsspezifisches
 
 \section{Universale Crossover-Operationen}
+\label{sec:UniversaleOp}
 
 Kurz auf weitere, universal einsetzbare Operationen eingehen (besser am Anfang?)
 
 \section{Zusammenfassung und Ausblick}
+\label{sec:Zusammenfassung}
 
 Kurze Zusammenfassung
 
