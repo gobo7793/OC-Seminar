@@ -1,6 +1,6 @@
 \documentclass{llncs}
 \usepackage{epsfig,amsmath,graphicx,cite,lmodern}
-\usepackage{subfig,svg}
+\usepackage{subfig,url}
 \usepackage[utf8]{inputenc}
 
 \begin{document}
@@ -21,7 +21,7 @@
 
 %-------------------------
 \begin{abstract}
-	Crossover-Operationen sind ein wesentlicher Teil von Genetischen Algorithmen und sind maßgeblich für deren Effizienz. Daher soll ein kleiner Überblick über verschiedene Crossover-Operationen und deren Klassifizierung gegeben werden. Zunächst werden eindimensionale Repräsentationen betrachtet. Dabei werden vor allem Repräsentationen als Binärwerte, Ganzzahlen, Fließkommazahlen und Strings betrachtet und erläutert, wann welche Repräsentation geeignet ist und dafür optimierte Crossover-Operationen aufgezeigt. Ebenso betrachtet werden mehrdimensionale Repräsentationen wie Bäume und Arrays. Es wird zudem eine kleine Übersicht über weitere mehrdimensionale Repräsentationen gegeben. Ebenso wird auch darauf eingegangen, wann es geeignet ist, anwendungsspezifische Codierungen zu nutzen und anzuwenden. Ebenso werden zudem einige universell nutzbare Crossover-Operationen aufgezeigt, die nicht an eine spezielle Repräsentation gebunden sind.
+	Crossover-Operationen sind ein wesentlicher Teil von Genetischen Algorithmen und sind maßgeblich für deren Effizienz. Daher soll ein kleiner Überblick über verschiedene Crossover-Operationen und deren Klassifizierung gegeben werden. Zunächst werden eindimensionale Re\-prä\-sen\-ta\-ti\-on\-en betrachtet. Dabei werden vor allem Repräsentationen als Binärwerte, Ganzzahlen, Fließkommazahlen und Strings  erläutert, wann welche Repräsentation geeignet ist und dafür optimierte Crossover-Operationen aufgezeigt. Ebenso betrachtet werden mehrdimensionale Re\-prä\-sen\-ta\-ti\-on\-en wie Bäume und Arrays. Es wird zudem eine kleine Über\-sicht über weitere mehrdimensionale Repräsentationen gegeben. Ebenso wird auch darauf eingegangen, wann es geeignet ist, anwendungsspezifische Codierungen zu nutzen und anzuwenden. Ebenso werden zudem einige universell nutzbare Crossover-Operationen aufgezeigt, die nicht an eine spezielle Repräsentation gebunden sind.
 \end{abstract}
 
 \pagebreak
@@ -38,19 +38,21 @@
 		\label{fig:abb1}
 	\end{figure}	
 
-	Die wichtigen Parameter eines GA selbst sind zum einen die Selektion der Gene, deren Crossover-Operationen zur Erzeugung neuer Kinder, sowie die Durchführung anschließender Mutationen. Maßgeblich für die Qualität und Effizienz eines GA ist dabei die in Fig. \ref{fig:abb1} markierte Crossover-Operation. In dieser Seminararbeit soll daher nun ein kleiner Überblick über verschiedene Crossover-Operationen gegeben werden.
+	Die wichtigen Parameter eines GA selbst sind zum einen die Selektion der Gene, deren Crossover-Operationen zur Erzeugung neuer Kinder, sowie die Durch\-füh\-rung anschließender Mutationen. Maßgeblich für die Qualität und Effizienz eines GA ist dabei die in Fig. \ref{fig:abb1} markierte Crossover-Operation. In dieser Seminararbeit soll daher nun ein kleiner Überblick über verschiedene Crossover-Operationen gegeben werden.
 
 \section{Klassifizierungen von Crossover-Operationen}
 \label{sec:KlassifizierungCrossover}
 
 	\begin{figure}
 		\centering
-		\includegraphics[width=.8\columnwidth]{./Figures/Crossover-Klassifizierung-Paper.png}
-		\caption{Übersicht der Klassifizierung der Operationen}
+		\includegraphics[width=.8\columnwidth]{./Figures/Crossover-Klassifizierung.pdf}
+		\caption{Übersicht der Klassifizierung (nach \cite{Survey})}
 		\label{fig:abb2}
 	\end{figure}
+
+	Crossover-Operationen gibt es für viele verschiedene Arten von Anwendungen und Daten. Nicht alle möglichen Operationen sind jedoch für jede Anwendung und Daten anwendbar. Pavai und Geetha haben in \cite{Survey} bereits sehr gut einen Überblick über die Verschiedenen Arten von Crossover-Operationen gegeben, weshalb sich diese Seminararbeit an deren Arbeit orientiert. Crossover-Operationen können, wie in Fig. \ref{fig:abb2} dargestellt, in verschiedenen Kategorien klassifiziert werden, wobei sich diese Seminararbeit auf repräsentative Darstellungsformen der Daten und entsprechenden Crossover-Operationen beschränkt und für die kursiv markierten Klassifizierungen nur einen Überblick gibt bzw. nicht behandelt.
 	
-	Klassifizierung von Crossover
+	Die Basis aller verschiedenen Crossover-Operationen bilden die Elementaren Operationen, welche die Gene der beiden Eltern an einer oder mehreren Stellen teilen und daraus die neuen Kinder erzeugen. Entsprechend werden sie auch \textit{One-Point-Crossover}, \textit{Two-Point-Crossover} bzw. \textit{N-Point-Crossover} genannt. Darauf basierend gibt es noch weitere Basis-Operationen, wie \textit{Segmented Crossover}, bei der die Gene in eine bestimmte Anzahl Segmente anstatt an einer bestimmten Anzahl an Stellen geteilt werden\cite{GABasicIdeas}, oder wie \textit{Uniform Crossover}, bei der für jede Stelle des Kindes zufällig ausgewählt wird, welcher Elternteil sein Gen vererbt. %TODO: Citization needed
 
 \section{Eindimensionale Repräsentation}
 \label{sec:EindimensionaleRep}
