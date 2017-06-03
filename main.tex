@@ -21,7 +21,7 @@
 
 %-------------------------
 \begin{abstract}
-	Zusammenfassung des Inhalts des Papers in ca. 200 Wörtern.
+	Crossover-Operationen sind ein wesentlicher Teil von Genetischen Algorithmen und sind maßgeblich für deren Effizienz. Daher soll ein kleiner Überblick über verschiedene Crossover-Operationen und deren Klassifizierung gegeben werden. Zunächst werden eindimensionale Repräsentationen betrachtet. Dabei werden vor allem Repräsentationen als Binärwerte, Ganzzahlen, Fließkommazahlen und Strings betrachtet und erläutert, wann welche Repräsentation geeignet ist und dafür optimierte Crossover-Operationen aufgezeigt. Ebenso betrachtet werden mehrdimensionale Repräsentationen wie Bäume und Arrays. Es wird zudem eine kleine Übersicht über weitere mehrdimensionale Repräsentationen gegeben. Ebenso wird auch darauf eingegangen, wann es geeignet ist, anwendungsspezifische Codierungen zu nutzen und anzuwenden. Ebenso werden zudem einige universell nutzbare Crossover-Operationen aufgezeigt, die nicht an eine spezielle Repräsentation gebunden sind.
 \end{abstract}
 
 \pagebreak
@@ -38,12 +38,19 @@
 		\label{fig:abb1}
 	\end{figure}	
 
-	Die wichtigen Parameter eines GA selbst sind zum einen die Selektion der Gene, deren Crossover zur Erzeugung neuer Kinder, sowie die Durchführung anschließender Mutationen. Maßgeblich für die Qualität und Effizienz eines GA ist dabei die in Fig. \ref{fig:abb1} markierte Crossover-Operation. In dieser Seminararbeit soll daher nun ein kleiner Überblick über verschiedene Crossover-Operationen gegeben werden.
+	Die wichtigen Parameter eines GA selbst sind zum einen die Selektion der Gene, deren Crossover-Operationen zur Erzeugung neuer Kinder, sowie die Durchführung anschließender Mutationen. Maßgeblich für die Qualität und Effizienz eines GA ist dabei die in Fig. \ref{fig:abb1} markierte Crossover-Operation. In dieser Seminararbeit soll daher nun ein kleiner Überblick über verschiedene Crossover-Operationen gegeben werden.
 
 \section{Klassifizierungen von Crossover-Operationen}
 \label{sec:KlassifizierungCrossover}
 
-Klassifizierung von Crossover
+	\begin{figure}
+		\centering
+		\includegraphics[width=.8\columnwidth]{./Figures/Crossover-Klassifizierung-Paper.png}
+		\caption{Übersicht der Klassifizierung der Operationen}
+		\label{fig:abb2}
+	\end{figure}
+	
+	Klassifizierung von Crossover
 
 \section{Eindimensionale Repräsentation}
 \label{sec:EindimensionaleRep}
@@ -58,7 +65,7 @@ Binär
 \subsection{Codierung als Ganzzahlen}
 \label{sec:IntCod}
 
-Da Ganzzahlige Werte ebenfalls sehr einfach als Binärwerte dargestellt werden können, können diese ebenfalls wie Binärwerte gehandhabt können. Daher wird hier vor allem auf Permutationen, also Ketten von mehreren in einer bestimmten Reihenfolge folgenden Zahlenwerten, eingegangen.
+Da ganzzahlige Werte ebenfalls sehr einfach als Binärwerte dargestellt werden können, können Crossover-Operationen für Binärwerte auch für ganzzahlige Werte eingesetzt werden. Daher wird hier vor allem auf Permutationen, also Ketten von mehreren Zahlenwerten in einer bestimmten Reihenfolge, eingegangen.
 
 Permutationen von Integer-Werten (zB TSP)
 
