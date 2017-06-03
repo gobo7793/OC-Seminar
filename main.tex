@@ -2,6 +2,7 @@
 \usepackage{epsfig,amsmath,graphicx,cite,lmodern}
 \usepackage{subfig,url}
 \usepackage[utf8]{inputenc}
+\usepackage{verbatim}
 
 \begin{document}
 \mainmatter
@@ -21,7 +22,7 @@
 
 %-------------------------
 \begin{abstract}
-	Crossover-Operationen sind ein wesentlicher Teil von Genetischen Algorithmen und sind maßgeblich für deren Effizienz. Daher soll ein kleiner Überblick über verschiedene Crossover-Operationen und deren Klassifizierung gegeben werden. Zunächst werden eindimensionale Re\-prä\-sen\-ta\-ti\-on\-en betrachtet. Dabei werden vor allem Repräsentationen als Binärwerte, Ganzzahlen, Fließkommazahlen und Strings  erläutert, wann welche Repräsentation geeignet ist und dafür optimierte Crossover-Operationen aufgezeigt. Ebenso betrachtet werden mehrdimensionale Re\-prä\-sen\-ta\-ti\-on\-en wie Bäume und Arrays. Es wird zudem eine kleine Über\-sicht über weitere mehrdimensionale Repräsentationen gegeben. Ebenso wird auch darauf eingegangen, wann es geeignet ist, anwendungsspezifische Codierungen zu nutzen und anzuwenden. Ebenso werden zudem einige universell nutzbare Crossover-Operationen aufgezeigt, die nicht an eine spezielle Repräsentation gebunden sind.
+	Crossover-Operationen sind ein wesentlicher Teil von Genetischen Algorithmen und sind maßgeblich für deren Effizienz. Daher soll ein kleiner Überblick über verschiedene Crossover-Operationen und deren Klassifizierung gegeben werden. Zunächst werden eindimensionale Re\-prä\-sen\-ta\-ti\-on\-en betrachtet. Dabei werden Repräsentationen als Binärwerte, Ganzzahlen bzw. entsprechende Permutationen, Fließkommazahlen und Strings  erläutert, wann welche Repräsentation geeignet ist und dafür optimierte Crossover-Operationen aufgezeigt. Ebenso betrachtet werden mehrdimensionale Re\-prä\-sen\-ta\-ti\-on\-en wie Bäume und Arrays. Es wird zudem eine kleine Über\-sicht über weitere mehrdimensionale Repräsentationen gegeben. Ebenso wird auch darauf eingegangen, wann es geeignet ist, anwendungsspezifische Codierungen zu nutzen und anzuwenden. Ebenso werden zudem einige universell nutzbare Crossover-Operationen aufgezeigt, die nicht an eine spezielle Repräsentation gebunden sind.
 \end{abstract}
 
 \pagebreak
@@ -38,7 +39,9 @@
 		\label{fig:abb1}
 	\end{figure}	
 
-	Die wichtigen Parameter eines GA selbst sind zum einen die Selektion der Gene, deren Crossover-Operationen zur Erzeugung neuer Kinder, sowie die Durch\-füh\-rung anschließender Mutationen. Maßgeblich für die Qualität und Effizienz eines GA ist dabei die in Fig. \ref{fig:abb1} markierte Crossover-Operation. In dieser Seminararbeit soll daher nun ein kleiner Überblick über verschiedene Crossover-Operationen gegeben werden.
+	Die wichtigen Parameter eines GA selbst sind zum einen die Selektion der Gene, deren Crossover-Operationen zur Erzeugung neuer Kinder, sowie die Durch\-füh\-rung anschließender Mutationen. Maßgeblich für die Qualität und Effizienz eines GA ist dabei die in Fig. \ref{fig:abb1} markierte Crossover-Operation.
+	
+	In dieser Seminararbeit soll daher nun ein kleiner Überblick über verschiedene Crossover-Operationen gegeben werden. Nach einer Übersicht der Klassifikationen im Abschnitt \ref{sec:KlassifizierungCrossover} werden im Abschnitt \ref{sec:EindimensionaleRep} zuerst geeignete Anwendungen und dazugehörige Crossover-Operationen für eindimensionale, im darauf folgenden Abschnitt \ref{sec:MehrdimRep} für mehrdimensionale Repräsentationen aufgezeigt. Anschließend wird im Abschnitt \ref{sec:AnwendungsspezifischeCod} ein kurzer Überblick über anwendungsspezifische Codierung sowie im Abschnitt \ref{sec:UniversaleOp} ein Überblick über universell einsetzbare Crossover-Operationen gegeben.
 
 \section{Klassifizierungen von Crossover-Operationen}
 \label{sec:KlassifizierungCrossover}
@@ -51,70 +54,78 @@
 	\end{figure}
 
 	Crossover-Operationen gibt es für viele verschiedene Arten von Anwendungen und Daten. Nicht alle möglichen Operationen sind jedoch für jede Anwendung und Daten anwendbar. Pavai und Geetha haben in \cite{Survey} bereits sehr gut einen Überblick über die Verschiedenen Arten von Crossover-Operationen gegeben, weshalb sich diese Seminararbeit an deren Arbeit orientiert. Crossover-Operationen können, wie in Fig. \ref{fig:abb2} dargestellt, in verschiedenen Kategorien klassifiziert werden, wobei sich diese Seminararbeit auf repräsentative Darstellungsformen der Daten und entsprechenden Crossover-Operationen beschränkt und für die kursiv markierten Klassifizierungen nur einen Überblick gibt bzw. nicht behandelt.
-	
+
 	Die Basis aller verschiedenen Crossover-Operationen bilden die Elementaren Operationen, welche die Gene der beiden Eltern an einer oder mehreren Stellen teilen und daraus die neuen Kinder erzeugen. Entsprechend werden sie auch \textit{One-Point-Crossover}, \textit{Two-Point-Crossover} bzw. \textit{N-Point-Crossover} genannt. Darauf basierend gibt es noch weitere Basis-Operationen, wie \textit{Segmented Crossover}, bei der die Gene in eine bestimmte Anzahl Segmente anstatt an einer bestimmten Anzahl an Stellen geteilt werden\cite{GABasicIdeas}, oder wie \textit{Uniform Crossover}, bei der für jede Stelle des Kindes zufällig ausgewählt wird, welcher Elternteil sein Gen vererbt. %TODO: Citization needed
 
 \section{Eindimensionale Repräsentation}
 \label{sec:EindimensionaleRep}
 
-Eindimensionales
+	Unter eindimensionaler Repräsentation wird vor allem die Repräsentation der Daten in den elementaren Datentypen verstanden. Die Daten liegen dabei nur linear in einer bestimmten Reihenfolge vor, wodurch die Handhabung mit den Daten auch entsprechend einfach ist und in vielen Anwendungsfällen ohne große Probleme durchgeführt werden kann und entsprechend oft genutzt wird.
+	
+	Zuerst wird im Abschnitt \ref{sec:BinCod} ein Überblick über Anwendungsfälle und mögliche Crossover-Operationen für die Binär-Codierung gegeben. Anschließend wird in Abschnitt \ref{sec:IntCod} auf Ganzzahlige Codierung eingegangen, in Abschnitt \ref{sec:FloatCod} folgen Fließkomma-Darstellungen sowie in \ref{sec:StrCod} Codierungen als Zeichenketten.
 
-\subsection{Binäre Codierung}
-\label{sec:BinCod}
-
-Binär
-
-\subsection{Codierung als Ganzzahlen}
-\label{sec:IntCod}
-
-Da ganzzahlige Werte ebenfalls sehr einfach als Binärwerte dargestellt werden können, können Crossover-Operationen für Binärwerte auch für ganzzahlige Werte eingesetzt werden. Daher wird hier vor allem auf Permutationen, also Ketten von mehreren Zahlenwerten in einer bestimmten Reihenfolge, eingegangen.
-
-Permutationen von Integer-Werten (zB TSP)
-
-\subsection{Codierung als Fließkommazahl}
-\label{sec:FloatCod}
-
-Fließkommazahlen
-
-\subsection{Codierung als Zeichenkette}
-\label{sec:StrCod}
-
-String-Codierungen
+	\subsection{Binäre Codierung}
+	\label{sec:BinCod}
+	
+		Eine Codierung als Binärwerte bedeutet, dass die Werte, die vom GA bearbeitet werden, als eine Kette von 0 und 1 dargestellt sind. Der große Vorteil einer binären Codierung liegt vor allem darin, dass die Handhabung entsprechender Daten sehr einfach und platzsparend ist, weshalb diese Art der Darstellung von jeder Anwendung genutzt werden kann. Ebenfalls ein großer Vorteil liegt darin, dass entsprechende GAs aufgrund des geringen Alphabets sehr schnell und effizient sind.\cite{TacklingRealCodedGA}
+		
+		Vor allem folgende Arten von Anwendungen sind dafür geeignet, mit binärer Codierung zu Arbeiten:
+		\begin{itemize}
+			\item Klassifizierungs-Problem
+			\item \textit{Multimodal Spin Lattice}-Problem
+		\end{itemize}
+	
+	\subsection{Codierung als Ganzzahlen}
+	\label{sec:IntCod}
+	
+		Da ganzzahlige Werte ebenfalls sehr einfach als Binärwerte dargestellt werden können, können Crossover-Operationen für Binärwerte auch für ganzzahlige Werte eingesetzt werden. Daher wird hier vor allem auf Permutationen, also Ketten von mehreren Zahlenwerten in einer bestimmten Reihenfolge, eingegangen.
+		
+		Permutationen von Integer-Werten (zB TSP)
+	
+	\subsection{Codierung als Fließkommazahl}
+	\label{sec:FloatCod}
+	
+		Fließkommazahlen
+	
+	\subsection{Codierung als Zeichenkette}
+	\label{sec:StrCod}
+	
+		String-Codierungen
 
 \section{Mehrdimensionale Repräsentation}
 \label{sec:MehrdimRep}
 
-Mehrdimensionale
+	Mehrdimensionale
 
-\subsection{Codierung als Baum}
-\label{sec:BaumCod}
-
-Bäume und deren nutzen
-
-\subsection{Codierung als Array}
-\label{sec:ArrayCod}
-
-Array und deren Nutzen
-
-\subsection{Weitere Codierungen für mehrdimensionale Daten}
-\label{sec:WeitereMehrdimensionale}
-
-Kurz weiteres wie Matrizen und modularisierte Codierung
+	\subsection{Codierung als Baum}
+	\label{sec:BaumCod}
+	
+		Bäume und deren nutzen
+	
+	\subsection{Codierung als Array}
+	\label{sec:ArrayCod}
+	
+		Array und deren Nutzen
+	
+	\subsection{Weitere Codierungen für mehrdimensionale Daten}
+	\label{sec:WeitereMehrdimensionale}
+	
+		Kurz weiteres wie Matrizen und modularisierte Codierung
 
 \section{Anwendungsspezifische Codierung der Daten}
 \label{sec:AnwendungsspezifischeCod}
 
-Kurz anwendungsspezifisches
+	Kurz anwendungsspezifisches
 
 \section{Universale Crossover-Operationen}
 \label{sec:UniversaleOp}
 
-Kurz auf weitere, universal einsetzbare Operationen eingehen (besser am Anfang?)
+	Kurz auf weitere, universal einsetzbare Operationen eingehen (besser am Anfang?)
 
 \section{Zusammenfassung und Ausblick}
 \label{sec:Zusammenfassung}
 
-Kurze Zusammenfassung
+	Kurze Zusammenfassung
 
 \bibliographystyle{splncs03} 
 \bibliography{literature}
@@ -125,26 +136,8 @@ Kurze Zusammenfassung
 
 \newpage
 
-%-------------------------
-\section{Motivation}
-\label{sec:Motivation}
-Einführung ins Thema. Was bestehen für Probleme, wie soll das gelöst werden? \\
-
-Wieso braucht man vorgestellte Technik/System/Algorithmus?
-
-
-
-%-------------------------
-\section{Stand der Technik} \label{sec:sdt}
-%
-Wie andere Verfahren das Problem zu lösen versuchen. \cite{OCBible}
-
-%-------------------------
-\section{Hauptteil}
-\label{sec:Hauptteil}
-
+\begin{comment}
 \subsection{Grundlagen}
-\label{sec:Grundlagen}
 Text zu Fig.~\ref{fig:abb1}. Siehe Formel~\ref{eq:mean}
 
 \subsubsection{Advantages and Challenges}
@@ -163,11 +156,6 @@ Eine Subsubsection.
 \label{eq:mean}
 \bar{e} = \frac{1}{N}\sum_{i=1}^N{\lvert f_i - x_i\rvert}
 \end{equation}
-
-
-%-------------------------
-\section{Evaluation}
-
-
+\end{comment}
 
 \end{document}
