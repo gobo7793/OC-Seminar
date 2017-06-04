@@ -1,0 +1,75 @@
+% !TEX root = main.tex
+
+\section{Eindimensionale Repräsentation}
+\label{sec:EindimRep}
+
+Unter eindimensionaler Repräsentation wird vor allem die Darstellung der Daten in den elementaren Datentypen verstanden. Die Daten liegen dabei nur linear in einer bestimmten Reihenfolge vor, wodurch die Handhabung mit den Daten auch entsprechend einfach ist und in vielen Anwendungsfällen ohne große Probleme durchgeführt werden kann und entsprechend oft genutzt wird.
+
+Zuerst wird im Abschnitt \ref{sec:BinCod} ein Überblick über Anwendungsfälle und mög\-liche COs für die Binär-Codierung gegeben. Anschließend wird in Abschnitt \ref{sec:IntCod} auf ganzzahlige Codierung allgemein bzw. auf Permutationen im Speziellen eingegangen, in Abschnitt \ref{sec:FloatCod} folgen Fließkomma-Darstellungen sowie in \ref{sec:StrCod} Zeichenketten.
+
+\subsection{Binäre Codierung}
+\label{sec:BinCod}
+
+	Eine Codierung als Binärwerte bedeutet, dass die Werte, die vom GA bearbeitet werden, als eine Kette von 0 und 1 dargestellt sind. Der große Vorteil einer binären Codierung liegt vor allem darin, dass die Handhabung entsprechender Daten sehr einfach und platzsparend ist, weshalb diese Art der Darstellung prinzipiell von jeder Anwendung genutzt werden kann. Ebenfalls ein großer Vorteil liegt darin, dass entsprechende GAs aufgrund des geringen Alphabets sehr schnell und effizient sind.\cite{TacklingRealCodedGA}
+	
+	Vor allem folgende Arten von Anwendungen sind besonders dafür geeignet, mit binärer Codierung zu Arbeiten:\cite{Survey}
+	\begin{description}
+		\item[Klassifizierungs-Problem] Lösung soll in verschiedene Kategorien klassifiziert werden\cite{NearestNeighborClassifier}
+		\item[\textit{Multimodal Spin Lattice}-Problem] Suchen eines minimalen Ener\-gie\-zu\-stan\-des für 450 Spins mit je vier Zuständen auf einem 2D-Gitter\cite{SelectionSchemesSpatialIsolation}
+	\end{description}
+	
+	Passende Crossover-Operationen dafür sind:
+	\begin{description}
+		\item[Self-Crossover] Tauschen von einzelnen Bits innerhalb des Chromosoms\cite{SelfCrossover}
+		\item[Supplementary Crossover] Nutzt das \textit{Center of Gravity}-Paradigma um Kin\-der zu erzeugen\cite{SupplementaryCrossover}
+		\item[Generalized crossover] Interpretiert Chromosom als Ganzzahl und dividiert diese durch eine andere, zufällig ausgewählte Ganzzahl\cite{GeneralizedCrossover}
+	\end{description}
+
+\subsection{Codierung als Ganzzahlen und Permutationen}
+\label{sec:IntCod}
+
+	Da ganzzahlige Werte ebenfalls sehr einfach als Binärwerte dargestellt werden können, können COs für Binärwerte prinzipiell auch für ganzzahlige Werte eingesetzt werden. Natürlich gibt es auch entsprechende Anwendungsfälle und COs, die speziell für ganzzahlige Darstellungen geeignet und optimiert sind, auf die hier aber verzichtet wird und stattdessen auf Ketten von ganzzahligen Werten, also Permutationen, eingegangen wird.
+	
+	Der Unterschied zwischen einfacher ganzzahligen Darstellungen und Permutationen liegt darin, dass bei Permutationen die komplette Zahlenfolge als mehrere aneinandergereihte Zahlen betrachtet werden muss. Entsprechend kön\-nen nicht einfache COs für Binärwerte und einfache ganzzahlige Werte eingesetzt werden, sondern COs, welche die Zahlenketten entsprechend berücksichtigen. Dies ist u. A. bei folgenden Anwendungen und Problemen der Fall:
+	\begin{description}
+		\item[Traveling Salesman Problem (TSP)] Mehrere Orte, die mit einer möglichst kurzen Strecke miteinander verbunden werden müssen\cite{GAforTSP}
+		\item[Graph Coloring Problem] Knoten eines Graphen mit möglichst wenig und verschiedenen Farben einfärben\cite{OrderBasedForGCP}
+		\item[Quadratic Assignment Problem] Summe der Distanzen zwischen Punkten minimieren, ähnlich wie TSP, nur mit quadratischer Kostenfunktion\cite{COforQAP}
+	\end{description}
+	
+	Passende COs für Permutationen lassen sich in verschiedene Kategorien einteilen, welche sich basierend auf dem grundlegenden Vorgehen der COs klassifizieren lassen. Im Folgenden werden nun einige positionsbasierte, kantenbasierte und folgenbasierte COs vorgestellt. Daneben gibt es aber auch noch weitere, wie z. B. teilmengenbasierte, die auf Basis von Genom-Teilmengen arbeiten, \textit{Cut and Splice}-basierte, die einen Teil der Elterngenome tauschen, oder distanzbasierte COs, bei denen die Anzahl der unterschiedlichen Gene zwischen allen Elternteile gleich sein muss.
+	
+	\subsubsection{Positionsbasierte COs}
+	
+		In dieser Kategorie finden sich vor allem COs, welche positionsbasiert einzelne Gene beeinflussen. Dies sind u. A. folgende:
+		
+		\begin{description}
+			\item[label] description
+		\end{description}
+		
+	\subsubsection{Kantenbasierte COs}
+	
+		In dieser Kategorie finden sich COs, welche basierend auf den Kanten der Eltern neue Kinder erzeugen. Darunter fallen u. A. folgende COs:
+		
+		\begin{description}
+			\item[label] description
+		\end{description}
+	
+	\subsubsection{Folgenbasierte COs}
+	
+		Folgenbasierte COs beeinflussen vor allem die Reihenfolge der Gene. Sie lassen sich in weitere Unterkategorien einteilen
+		
+		\begin{description}
+			\item[label] description
+		\end{description}
+
+\subsection{Codierung als Fließkommazahl}
+\label{sec:FloatCod}
+
+	Fließkommazahlen
+
+\subsection{Codierung als Zeichenkette}
+\label{sec:StrCod}
+
+	String-Codierungen
+
