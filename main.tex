@@ -22,7 +22,7 @@
 
 %-------------------------
 \begin{abstract}
-	Crossover-Operationen sind ein wesentlicher Teil von Genetischen Algorithmen und sind maßgeblich für deren Effizienz. Daher soll ein kleiner Überblick über verschiedene Crossover-Operationen und deren Klassifizierung gegeben werden. Zunächst werden eindimensionale Re\-prä\-sen\-ta\-ti\-on\-en betrachtet. Dabei werden Repräsentationen als Binärwerte, Ganzzahlen bzw. entsprechende Permutationen, Fließkommazahlen und Strings  erläutert, wann welche Repräsentation geeignet ist und dafür optimierte Crossover-Operationen aufgezeigt. Ebenso betrachtet werden mehrdimensionale Re\-prä\-sen\-ta\-ti\-on\-en wie Bäume und Arrays. Es wird zudem eine kleine Über\-sicht über weitere mehrdimensionale Repräsentationen gegeben. Ebenso wird auch darauf eingegangen, wann es geeignet ist, anwendungsspezifische Codierungen zu nutzen und anzuwenden. Ebenso werden zudem einige universell nutzbare Crossover-Operationen aufgezeigt, die nicht an eine spezielle Repräsentation gebunden sind.
+	Crossover-Operationen (CO) sind ein wesentlicher Teil von Genetischen Algorithmen (GA) und sind maßgeblich für deren Effizienz. Daher soll ein kleiner Überblick über verschiedene COs und deren Klassifizierung gegeben werden. Zunächst werden eindimensionale Re\-prä\-sen\-ta\-ti\-on\-en betrachtet. Dabei werden Darstellungen als Binärwerte, Ganzzahlen bzw. entsprechende Permutationen, Fließkommazahlen und Zeichenketten erläutert, bei welchen Problemen bzw. Anwendungsfällen welche Darstellung geeignet ist, und einige der dafür optimierten COs aufgezeigt. Ebenso betrachtet werden mehrdimensionale Re\-prä\-sen\-ta\-ti\-on\-en wie Bäume und Arrays. Es wird zudem eine kleine Über\-sicht über weitere mehrdimensionale Repräsentationen gegeben. Ebenso wird auch darauf eingegangen, wann es geeignet ist, anwendungsspezifische Co\-die\-rungen zu nutzen und anzuwenden. Ebenso werden zudem einige universell nutzbare COs aufgezeigt, die nicht an eine spezielle Repräsentation der Daten gebunden sind.
 \end{abstract}
 
 \pagebreak
@@ -30,7 +30,7 @@
 \section{Einführung in genetische Algorithmen}
 \label{sec:EinfuhrungGA}
 
-	Genetische Algorithmen sind genauso wie andere Evolutionäre Algorithmen im Allgemeinen aus der Biologie übernommen worden. Wie der Name schon aussagt, basieren sie auf dem Prinzip der Evolution, bei der basierend auf einer Ausgangspopulation möglicher Lösungen neue Kinder erzeugt werden, welche dann die Vorfahren in der Population verdrängen. Welche Vorfahren, oder gar die erzeugten Kinder, dabei konkret verdrängt werden, entscheidet sich basierend auf einer Fitness-Funktion, bei der die gefundenen Lösungen der Population Evaluiert werden und anschließend die nur die besten in der Population verweilen dürfen.
+	Genetische Algorithmen (GA) sind genauso wie andere Evolutionäre Algorithmen im Allgemeinen aus der Biologie übernommen worden. Wie der Name schon aussagt, basieren sie auf dem Prinzip der Evolution, bei der basierend auf einer Ausgangspopulation möglicher Lösungen neue Kinder erzeugt werden, welche dann die Vorfahren in der Population verdrängen. Welche Vorfahren, oder gar die erzeugten Kinder, dabei konkret verdrängt werden, entscheidet sich basierend auf einer Fitness-Funktion, bei der die gefundenen Lösungen der Population evaluiert werden und anschließend nur die besten in der Population verweilen dürfen.
 	
 	\begin{figure}
 		\centering
@@ -39,9 +39,9 @@
 		\label{fig:abb1}
 	\end{figure}	
 
-	Die wichtigen Parameter eines GA selbst sind zum einen die Selektion der Gene, deren Crossover-Operationen zur Erzeugung neuer Kinder, sowie die Durch\-füh\-rung anschließender Mutationen. Maßgeblich für die Qualität und Effizienz eines GA ist dabei die in Fig. \ref{fig:abb1} markierte Crossover-Operation.
+	Die wichtigen Parameter eines GA selbst sind zum einen die Selektion der Gene, deren Crossover-Operationen (CO) zur Erzeugung neuer Kinder, sowie die Durch\-füh\-rung anschließender Mutationen. Maßgeblich für die Qualität und Effizienz eines GA ist dabei die in Fig. \ref{fig:abb1} markierte CO.
 	
-	In dieser Seminararbeit soll daher nun ein kleiner Überblick über verschiedene Crossover-Operationen gegeben werden. Nach einer Übersicht der Klassifikationen im Abschnitt \ref{sec:KlassifizierungCrossover} werden im Abschnitt \ref{sec:EindimensionaleRep} zuerst geeignete Anwendungen und dazugehörige Crossover-Operationen für eindimensionale, im darauf folgenden Abschnitt \ref{sec:MehrdimRep} für mehrdimensionale Repräsentationen aufgezeigt. Anschließend wird im Abschnitt \ref{sec:AnwendungsspezifischeCod} ein kurzer Überblick über anwendungsspezifische Codierung sowie im Abschnitt \ref{sec:UniversaleOp} ein Überblick über universell einsetzbare Crossover-Operationen gegeben.
+	In dieser Seminararbeit soll daher nun ein kleiner Überblick über einige verschiedene COs gegeben werden. Nach einer Übersicht der Klassifikationen im Abschnitt \ref{sec:KlassifizierungCrossover} werden im Abschnitt \ref{sec:EindimensionaleRep} zuerst geeignete Anwendungen und dazugehörige COs für eindimensionale, im darauf folgenden Abschnitt \ref{sec:MehrdimRep} für mehrdimensionale Repräsentationen aufgezeigt. Anschließend wird im Abschnitt \ref{sec:AnwendungsspezifischeCod} ein kurzer Überblick über anwendungsspezifische Codierung sowie im Abschnitt \ref{sec:UniversaleOp} ein Überblick über universell einsetzbare COs gegeben.
 
 \section{Klassifizierungen von Crossover-Operationen}
 \label{sec:KlassifizierungCrossover}
@@ -53,32 +53,39 @@
 		\label{fig:abb2}
 	\end{figure}
 
-	Crossover-Operationen gibt es für viele verschiedene Arten von Anwendungen und Daten. Nicht alle möglichen Operationen sind jedoch für jede Anwendung und Daten anwendbar. Pavai und Geetha haben in \cite{Survey} bereits sehr gut einen Überblick über die Verschiedenen Arten von Crossover-Operationen gegeben, weshalb sich diese Seminararbeit an deren Arbeit orientiert. Crossover-Operationen können, wie in Fig. \ref{fig:abb2} dargestellt, in verschiedenen Kategorien klassifiziert werden, wobei sich diese Seminararbeit auf repräsentative Darstellungsformen der Daten und entsprechenden Crossover-Operationen beschränkt und für die kursiv markierten Klassifizierungen nur einen Überblick gibt bzw. nicht behandelt.
+	COs gibt es für viele verschiedene Arten von Anwendungen und Daten. Nicht alle möglichen Operationen sind jedoch für jede Anwendung und Daten anwendbar. Pavai und Geetha haben in \cite{Survey} bereits sehr gut einen Überblick über die Verschiedenen Arten von COs gegeben, weshalb sich diese Seminararbeit an deren Arbeit orientiert. COs können, wie in Fig. \ref{fig:abb2} dargestellt, in verschiedenen Kategorien klassifiziert werden. Diese Seminararbeit beschränkt sich auf die repräsentativen Darstellungsformen der Daten und deren entsprechenden COs. Für die kursiv markierten Klassifizierungen wird daher nur ein kurzer Überblick bzw. im Falle der performance-optimierten COs darauf verzichtet.
 
-	Die Basis aller verschiedenen Crossover-Operationen bilden die Elementaren Operationen, welche die Gene der beiden Eltern an einer oder mehreren Stellen teilen und daraus die neuen Kinder erzeugen. Entsprechend werden sie auch \textit{One-Point-Crossover}, \textit{Two-Point-Crossover} bzw. \textit{N-Point-Crossover} genannt. Darauf basierend gibt es noch weitere Basis-Operationen, wie \textit{Segmented Crossover}, bei der die Gene in eine bestimmte Anzahl Segmente anstatt an einer bestimmten Anzahl an Stellen geteilt werden\cite{GABasicIdeas}, oder wie \textit{Uniform Crossover}, bei der für jede Stelle des Kindes zufällig ausgewählt wird, welcher Elternteil sein Gen vererbt. %TODO: Citization needed
+	Die Basis aller verschiedenen COs bilden die Elementaren Operationen, welche die Gene der beiden Eltern an einer oder mehreren Stellen teilen und daraus die neuen Kinder erzeugen. Entsprechend werden sie auch \textit{N-Point-Crossover} bzw. im Speziellen auch \textit{One-Point-Crossover} oder \textit{Two-Point-Crossover} genannt. Darauf basierend gibt es noch weitere Basis-Operationen, wie \textit{Segmented Cross\-over}, bei der die Gene in eine bestimmte Anzahl Segmente anstatt an einer bestimmten Anzahl an Stellen geteilt werden\cite{GABasicIdeas}, oder wie \textit{Uniform Crossover}, bei der für jede Stelle des Kindes zufällig ausgewählt wird, welcher Elternteil sein Gen vererbt.
 
 \section{Eindimensionale Repräsentation}
 \label{sec:EindimensionaleRep}
 
-	Unter eindimensionaler Repräsentation wird vor allem die Repräsentation der Daten in den elementaren Datentypen verstanden. Die Daten liegen dabei nur linear in einer bestimmten Reihenfolge vor, wodurch die Handhabung mit den Daten auch entsprechend einfach ist und in vielen Anwendungsfällen ohne große Probleme durchgeführt werden kann und entsprechend oft genutzt wird.
+	Unter eindimensionaler Repräsentation wird vor allem die Darstellung der Daten in den elementaren Datentypen verstanden. Die Daten liegen dabei nur linear in einer bestimmten Reihenfolge vor, wodurch die Handhabung mit den Daten auch entsprechend einfach ist und in vielen Anwendungsfällen ohne große Probleme durchgeführt werden kann und entsprechend oft genutzt wird.
 	
-	Zuerst wird im Abschnitt \ref{sec:BinCod} ein Überblick über Anwendungsfälle und mögliche Crossover-Operationen für die Binär-Codierung gegeben. Anschließend wird in Abschnitt \ref{sec:IntCod} auf Ganzzahlige Codierung eingegangen, in Abschnitt \ref{sec:FloatCod} folgen Fließkomma-Darstellungen sowie in \ref{sec:StrCod} Codierungen als Zeichenketten.
+	Zuerst wird im Abschnitt \ref{sec:BinCod} ein Überblick über Anwendungsfälle und mög\-liche COs für die Binär-Codierung gegeben. Anschließend wird in Abschnitt \ref{sec:IntCod} auf ganzzahlige Codierung eingegangen, in Abschnitt \ref{sec:FloatCod} folgen Fließkomma-Darstellungen sowie in \ref{sec:StrCod} Zeichenketten.
 
 	\subsection{Binäre Codierung}
 	\label{sec:BinCod}
 	
-		Eine Codierung als Binärwerte bedeutet, dass die Werte, die vom GA bearbeitet werden, als eine Kette von 0 und 1 dargestellt sind. Der große Vorteil einer binären Codierung liegt vor allem darin, dass die Handhabung entsprechender Daten sehr einfach und platzsparend ist, weshalb diese Art der Darstellung von jeder Anwendung genutzt werden kann. Ebenfalls ein großer Vorteil liegt darin, dass entsprechende GAs aufgrund des geringen Alphabets sehr schnell und effizient sind.\cite{TacklingRealCodedGA}
+		Eine Codierung als Binärwerte bedeutet, dass die Werte, die vom GA bearbeitet werden, als eine Kette von 0 und 1 dargestellt sind. Der große Vorteil einer binären Codierung liegt vor allem darin, dass die Handhabung entsprechender Daten sehr einfach und platzsparend ist, weshalb diese Art der Darstellung prinzipiell von jeder Anwendung genutzt werden kann. Ebenfalls ein großer Vorteil liegt darin, dass entsprechende GAs aufgrund des geringen Alphabets sehr schnell und effizient sind.\cite{TacklingRealCodedGA}
 		
-		Vor allem folgende Arten von Anwendungen sind dafür geeignet, mit binärer Codierung zu Arbeiten:
-		\begin{itemize}
-			\item Klassifizierungs-Problem
-			\item \textit{Multimodal Spin Lattice}-Problem
-		\end{itemize}
+		Vor allem folgende Arten von Anwendungen sind besonders dafür geeignet, mit binärer Codierung zu Arbeiten:\cite{Survey}
+		\begin{description}
+			\item[Klassifizierungs-Problem] Lösung soll in verschiedene Kategorien klassifiziert werden\cite{NearestNeighborClassifier}
+			\item[\textit{Multimodal Spin Lattice}-Problem] Suchen eines minimalen Ener\-gie\-zu\-stan\-des für 450 Spins mit je vier Zuständen auf einem 2D-Gitter\cite{SelectionSchemesSpatialIsolation}
+		\end{description}
+		
+		Passende Crossover-Operationen dafür sind:
+		\begin{description}
+			\item[Self-Crossover] Tauschen von einzelnen Bits innerhalb des Chromosoms\cite{SelfCrossover}
+			\item[Supplementary Crossover] Nutzt das \textit{Center of Gravity}-Paradigma um Kin\-der zu erzeugen\cite{SupplementaryCrossover}
+			\item[Generalized crossover] Interpretiert Chromosom als Ganzzahl und dividiert diese durch eine andere, zufällig ausgewählte Ganzzahl\cite{GeneralizedCrossover}
+		\end{description}
 	
 	\subsection{Codierung als Ganzzahlen}
 	\label{sec:IntCod}
 	
-		Da ganzzahlige Werte ebenfalls sehr einfach als Binärwerte dargestellt werden können, können Crossover-Operationen für Binärwerte auch für ganzzahlige Werte eingesetzt werden. Daher wird hier vor allem auf Permutationen, also Ketten von mehreren Zahlenwerten in einer bestimmten Reihenfolge, eingegangen.
+		Da ganzzahlige Werte ebenfalls sehr einfach als Binärwerte dargestellt werden können, können COs für Binärwerte auch für ganzzahlige Werte eingesetzt werden. Daher wird hier vor allem auf Permutationen, also Ketten von mehreren Zahlenwerten in einer bestimmten Reihenfolge, eingegangen.
 		
 		Permutationen von Integer-Werten (zB TSP)
 	
