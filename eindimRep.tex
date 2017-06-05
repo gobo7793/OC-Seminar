@@ -14,8 +14,8 @@ Zuerst wird im Abschnitt \ref{sec:BinCod} ein Überblick über Anwendungsfälle 
 	
 	Vor allem folgende Arten von Anwendungen sind besonders dafür geeignet, mit binärer Codierung zu Arbeiten:\cite{Survey}
 	\begin{description}
-		\item[Klassifizierungs-Problem] Lösung soll in verschiedene Kategorien klassifiziert werden\cite{NearestNeighborClassifier}
-		\item[\textit{Multimodal Spin Lattice}-Problem] Suchen eines minimalen Ener\-gie\-zu\-stan\-des für 450 Spins mit je vier Zuständen auf einem 2D-Gitter\cite{SelectionSchemesSpatialIsolation}
+		\item[Classification Problem] Lösung soll in verschiedene Kategorien klassifiziert werden\cite{NearestNeighborClassifier}
+		\item[Multimodal Spin Lattice Problem] Suchen eines minimalen Ener\-gie\-zu\-stan\-des für 450 Spins mit je vier Zuständen auf einem 2D-Gitter\cite{SelectionSchemesSpatialIsolation}
 	\end{description}
 	
 	Passende Crossover-Operationen dafür sind:
@@ -44,24 +44,30 @@ Zuerst wird im Abschnitt \ref{sec:BinCod} ein Überblick über Anwendungsfälle 
 		In dieser Kategorie finden sich vor allem COs, welche positionsbasiert einzelne Gene beeinflussen. Dies sind u. A. folgende:
 		
 		\begin{description}
-			\item[label] description
+			\item[Partially Mapped Crossover (PMX)] Wählt zufällig zwei Punkte aus und tauscht alle Werte dazwischen mit dem anderen Elternteil. Bei der Erweiterung Uniform PMX werden einzelne Gene anstatt eines ganzen Segments getauscht.\cite{GAforTSP}\cite{COforPermutations}\cite{COforQAP}
+			\item[Position Based Crossover (POS)] Wählt einige zufällige Positionen im ersten Elternteil aus und verschiebt die ausgewählten Werte zu den korrespondierenden Positionen im anderen Elternteil.\cite{COforPermutations}
 		\end{description}
 		
 	\subsubsection{Kantenbasierte COs}
 	
-		In dieser Kategorie finden sich COs, welche basierend auf den Kanten der Eltern neue Kinder erzeugen. Darunter fallen u. A. folgende COs:
+		In dieser Kategorie finden sich COs, welche basierend auf den Kanten der Eltern(-knoten) neue Kinder erzeugen. Darunter fallen u. A. folgende COs:
 		
 		\begin{description}
-			\item[label] description
+			\item[Edge Crossover] Wählt einen Knoten mit der geringsten Kantenzahl aus und fügt ihn zum neuen Kind hinzu und löscht ihn aus den anderen Kantenlisten.\cite{COforPermutations}
+			\item[Edge Exchange Crossover (EXX)] Vererbt zunächst alle Elternkanten um einen Kreis zu bilden, entfernt dann aber ungültige Kanten. Falls kein Kreis gebildet werden konnte, werden alle Kanten vererbt.\cite{EdgeCOforTSP}
 		\end{description}
 	
 	\subsubsection{Folgenbasierte COs}
 	
-		Folgenbasierte COs beeinflussen vor allem die Reihenfolge der Gene. Sie lassen sich in weitere Unterkategorien einteilen
+		Folgenbasierte COs beeinflussen vor allem die Reihenfolge der Gene. Sie lassen sich in weitere Unterkategorien einteilen. Darunter fallen u. A. folgende COs:
 		
 		\begin{description}
-			\item[label] description
+			\item[Merging Crossover (MOX)] Beide Eltern werden zuerst zufällig zusammengefügt und anschließend in die beiden Kinder geteilt.\cite{OrderBasedForGCP}
+			\item[Non-Wrapping Ordered Crossover] Erstellt Lücken und füllt diese wieder auf, ohne dabei die absolute Reihenfolge der Gene zu verliern.\cite{GAforTSP}
 		\end{description}
+	
+		Daneben gibt es auch noch weitere COs, welche sich neben den hier vorgestellten Unterkategorien (verschmelzende und absolute Reihenfolge) u. A. in sortierende oder angrenzende, folgenbasierte COs einsortieren lassen.
+
 
 \subsection{Codierung als Fließkommazahl}
 \label{sec:FloatCod}
