@@ -30,18 +30,18 @@ Zuerst wird im Abschnitt \ref{sec:BinCod} ein Überblick über Anwendungsfälle 
 
 	Da ganzzahlige Werte ebenfalls sehr einfach als Binärwerte dargestellt werden können, können COs für Binärwerte prinzipiell auch für ganzzahlige Werte eingesetzt werden. Natürlich gibt es auch entsprechende Anwendungsfälle und COs, die speziell für ganzzahlige Darstellungen geeignet und optimiert sind, auf die hier aber verzichtet wird und stattdessen auf Ketten von ganzzahligen Werten, also Permutationen, eingegangen wird.
 	
-	Der Unterschied zwischen einfacher ganzzahligen Darstellungen und Permutationen liegt darin, dass bei Permutationen die komplette Zahlenfolge als mehrere aneinandergereihte Zahlen betrachtet werden muss. Entsprechend kön\-nen nicht einfache COs für Binärwerte und einfache ganzzahlige Werte eingesetzt werden, sondern COs, welche die Zahlenketten entsprechend berücksichtigen. Dies ist u. A. bei folgenden Anwendungen und Problemen der Fall:
+	Der Unterschied zwischen einfacher ganzzahligen Darstellungen und Permutationen liegt darin, dass bei Permutationen die komplette Zahlenfolge als mehrere aneinandergereihte Zahlen betrachtet werden muss. Entsprechend kön\-nen nicht einfache COs für Binärwerte und einfache ganzzahlige Werte eingesetzt werden, sondern COs, welche die Zahlenketten entsprechend berücksichtigen. Dies ist \uA bei folgenden Anwendungen und Problemen der Fall:
 	\begin{description}
 		\item[Traveling Salesman Problem (TSP)] Mehrere Orte, die mit einer möglichst kurzen Strecke miteinander verbunden werden müssen\cite{GAforTSP}
 		\item[Graph Coloring Problem] Knoten eines Graphen mit möglichst wenig und verschiedenen Farben einfärben\cite{OrderBasedForGCP}
 		\item[Quadratic Assignment Problem] Summe der Distanzen zwischen Punkten minimieren, ähnlich wie TSP, nur mit quadratischer Kostenfunktion\cite{COforQAP}
 	\end{description}
 	
-	Passende COs für Permutationen lassen sich in verschiedene Kategorien einteilen, welche sich basierend auf dem grundlegenden Vorgehen der COs klassifizieren lassen. Im Folgenden werden nun einige positionsbasierte, kantenbasierte und folgenbasierte COs vorgestellt. Daneben gibt es aber auch noch weitere, wie z. B. teilmengenbasierte, die auf Basis von Genom-Teilmengen arbeiten, \textit{Cut and Splice}-basierte, die einen Teil der Elterngenome tauschen, oder distanzbasierte COs, bei denen die Anzahl der unterschiedlichen Gene zwischen allen Elternteile gleich sein muss.
+	Passende COs für Permutationen lassen sich in verschiedene Kategorien einteilen, welche sich basierend auf dem grundlegenden Vorgehen der COs klassifizieren lassen. Im Folgenden werden nun einige positionsbasierte, kantenbasierte und folgenbasierte COs vorgestellt. Daneben gibt es aber auch noch weitere, wie \zB teilmengenbasierte, die auf Basis von Genom-Teilmengen arbeiten, \textit{Cut and Splice}-basierte, die einen Teil der Elterngenome tauschen, oder distanzbasierte COs, bei denen die Anzahl der unterschiedlichen Gene zwischen allen Elternteile gleich sein muss.
 	
 	\subsubsection{Positionsbasierte COs}
 	
-		In dieser Kategorie finden sich vor allem COs, welche positionsbasiert einzelne Gene beeinflussen. Dies sind u. A. folgende:
+		In dieser Kategorie finden sich vor allem COs, welche positionsbasiert einzelne Gene beeinflussen. Dies sind \uA folgende:
 		
 		\begin{description}
 			\item[Partially Mapped Crossover (PMX)] Wählt zufällig zwei Punkte aus und tauscht alle Werte dazwischen mit dem anderen Elternteil. Bei der Erweiterung Uniform PMX werden einzelne Gene anstatt eines ganzen Segments getauscht.\cite{GAforTSP}\cite{COforPermutations}\cite{COforQAP}
@@ -50,7 +50,7 @@ Zuerst wird im Abschnitt \ref{sec:BinCod} ein Überblick über Anwendungsfälle 
 		
 	\subsubsection{Kantenbasierte COs}
 	
-		In dieser Kategorie finden sich COs, welche basierend auf den Kanten der Eltern(-knoten) neue Kinder erzeugen. Darunter fallen u. A. folgende COs:
+		In dieser Kategorie finden sich COs, welche basierend auf den Kanten der Eltern(-knoten) neue Kinder erzeugen. Darunter fallen \uA folgende COs:
 		
 		\begin{description}
 			\item[Edge Crossover] Wählt einen Knoten mit der geringsten Kantenzahl aus und fügt ihn zum neuen Kind hinzu und löscht ihn aus den anderen Kantenlisten.\cite{COforPermutations}
@@ -59,20 +59,28 @@ Zuerst wird im Abschnitt \ref{sec:BinCod} ein Überblick über Anwendungsfälle 
 	
 	\subsubsection{Folgenbasierte COs}
 	
-		Folgenbasierte COs beeinflussen vor allem die Reihenfolge der Gene. Sie lassen sich in weitere Unterkategorien einteilen. Darunter fallen u. A. folgende COs:
+		Folgenbasierte COs beeinflussen vor allem die Reihenfolge der Gene. Sie lassen sich in weitere Unterkategorien einteilen. Darunter fallen \uA folgende COs:
 		
 		\begin{description}
 			\item[Merging Crossover (MOX)] Beide Eltern werden zuerst zufällig zusammengefügt und anschließend in die beiden Kinder geteilt.\cite{OrderBasedForGCP}
 			\item[Non-Wrapping Ordered Crossover] Erstellt Lücken und füllt diese wieder auf, ohne dabei die absolute Reihenfolge der Gene zu verliern.\cite{GAforTSP}
 		\end{description}
 	
-		Daneben gibt es auch noch weitere COs, welche sich neben den hier vorgestellten Unterkategorien (verschmelzende und absolute Reihenfolge) u. A. in sortierende oder angrenzende, folgenbasierte COs einsortieren lassen.
+		Daneben gibt es auch noch weitere COs, welche sich neben den hier vorgestellten Unterkategorien (verschmelzende und absolute Reihenfolge) \zB in sortierende oder angrenzende, folgenbasierte COs einsortieren lassen.
 
 
 \subsection{Codierung als Fließkommazahl}
 \label{sec:FloatCod}
 
-	Fließkommazahlen
+	Im Gegensatz zur Codierung als Ganzzahlen bzw. Binärwerte lassen sich Daten, welche als Fließkommazahlen codiert sind, viel genauer Darstellen, haben dadurch aber auch einen deutlich größeren Suchraum für mögliche Lösungen. Es gibt aber auch viele Probleme und Anwendungsfälle, bei denen sich die Darstellung als Fließkommazahl deutlich besser eignet. Dies liegt auch dadurch begründet, dass viele Problemfälle bereits durch die Codierung nicht sehr effizient bearbeitet werden können, da die Auflösung als Binär- bzw. ganzzahlige Werte zu gering ist. Ebenso entfällt bei einer Fließkomma-Codierung und der Nutzung entsprechender COs der Bedarf der Konvertierung der Daten in eine andere Darstellungsform, wodurch letztlich die Effizienz des GAs deutlich erhöht wird. %TODO Citization
+	
+	Vor allem Anwendungen, welche einen kontinuierlichen Suchraum besitzen, lassen sich mit Fließkomma-Codierungen effizient ausführen. Darunter fallen \zB folgende Anwendungen und Probleme:
+	
+	\begin{description}
+		\item[Animal Diet Formulation Problem] Erstellung eines Ernährungsplans mit möglichst vielen Nährstoffen zu minimalen Kosten
+		\item[Electromagnetic Optimization] Handhabung mit elektromagnetischen Werten in einem kontinuierlichem Suchraum
+		\item[Revenue Management in Airlines] Zuweisen von begrenzten Ressourcen einer Airline (Flugzeuge, Personal, ...), um den Gewinn zu maximieren
+	\end{description}
 
 \subsection{Codierung als Zeichenkette}
 \label{sec:StrCod}
