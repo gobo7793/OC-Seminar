@@ -41,7 +41,7 @@ Zuerst wird im Abschnitt \ref{sec:BinCod} ein Überblick über Anwendungsfälle 
 	
 	\subsubsection{Positionsbasierte COs}
 	
-		In dieser Kategorie finden sich vor allem COs, welche positionsbasiert einzelne Gene beeinflussen. Dies sind \uA folgende:
+		beeinflussen die Gene ihrer Kinder basierend auf den Positionen der einzelnen Gene. Dies sind \uA folgende COs:
 		
 		\begin{description}
 			\item[Partially Mapped Crossover (PMX)] Wählt zufällig zwei Punkte aus und tauscht alle Werte dazwischen mit dem anderen Elternteil. Bei der Er\-wei\-ter\-ung Uniform PMX werden einzelne Gene anstatt eines ganzen Segments getauscht. \cite{GAforTSP}\cite{COforPermutations}\cite{COforQAP}
@@ -50,7 +50,7 @@ Zuerst wird im Abschnitt \ref{sec:BinCod} ein Überblick über Anwendungsfälle 
 		
 	\subsubsection{Kantenbasierte COs}
 	
-		In dieser Kategorie finden sich COs, welche basierend auf den Kanten der Eltern(-knoten) neue Kinder erzeugen. Darunter fallen \uA folgende COs:
+		erzeugen basierend auf Kanten der Eltern(-knoten) neue Kinder. Darunter fallen \uA folgende COs:
 		
 		\begin{description}
 			\item[Edge Crossover] Wählt einen Knoten mit der geringsten Kantenzahl aus und fügt ihn zum neuen Kind hinzu und löscht ihn aus den anderen Kantenlisten. \cite{COforPermutations}
@@ -59,7 +59,7 @@ Zuerst wird im Abschnitt \ref{sec:BinCod} ein Überblick über Anwendungsfälle 
 	
 	\subsubsection{Folgenbasierte COs}
 	
-		Folgenbasierte COs beeinflussen vor allem die Reihenfolge der Gene. Sie lassen sich in weitere Unterkategorien einteilen. Darunter fallen \uA folgende COs:
+		beeinflussen vor allem die Reihenfolge der Gene. Sie lassen sich in weitere Unterkategorien einteilen. Darunter fallen \zB folgende COs:
 		
 		\begin{description}
 			\item[Merging Crossover (MOX)] Beide Eltern werden zuerst zufällig zu\-sam\-men\-ge\-fügt und anschließend in die beiden Kinder geteilt. \cite{OrderBasedForGCP}
@@ -85,15 +85,36 @@ Zuerst wird im Abschnitt \ref{sec:BinCod} ein Überblick über Anwendungsfälle 
 	Als Fließkommazahlen codierte Daten kann man auf mehrere Arten verarbeiten, mit deren Basis die COs funktionieren. Dies sind \zB folgende Arten bzw. COs:
 	
 	\begin{description}
-		\item[Taguchi Crossover (TC)] Nutzt statistische Daten innerhalb einer Matrix um das beste Ergebnis zu finden \cite{TaguchiCrossover}
-		\item[Average Crossover] Modifizierter \textit{One-Point-Crossover}, bei dem die Durchschnittswerte zwischen beiden Eltern anstatt den Elternwerten der einzelnen Gene genutzt werden \cite{ConceptOfCOInRealCoded}
-		\item[Fuzzy Arithmetic Weighted Mean (FAWM)] Berechnet mithilfe der Fuzzy-Arithmetik die Werte der Kinder \cite{AirlineRevenueManagement}
+		\item[Taguchi Crossover (TC)] Nutzt statistische Daten innerhalb einer Matrix um das beste Ergebnis zu finden. \cite{TaguchiCrossover}
+		\item[Average Crossover] Modifizierter \textit{One-Point-Crossover}, bei dem die Durchschnittswerte zwischen beiden Eltern anstatt den Elternwerten der einzelnen Gene genutzt werden. \cite{ConceptOfCOInRealCoded}
+		\item[Fuzzy Arithmetic Weighted Mean (FAWM)] Berechnet mithilfe der Fuzzy-Arithmetik die Werte der Kinder. \cite{AirlineRevenueManagement}
 	\end{description}
 	
 	Daneben gibt es aber auch noch einige weitere Arten wie \zB den gewichteten Durchschnitt oder dem \textit{Center of Mass Crossover (CMX)}, welcher den gleichnamigen Ansatz nutzt um mithilfe des Massenzentrums der Eltern neue Kinder zu erzeugen. \cite{MultiParentRecombination} Daneben kann man aber auch verschiedene COs nutzen, um die Kinder zu erzeugen.
 
 \subsection{Codierung als Zeichenkette}
 \label{sec:StrCod}
-
-	String-Codierungen
-
+	
+	Bei einer Codierung der Daten als eine Zeichenkette werden die einzelnen Gene als Buchstaben codiert. Dies eignet sich daher entsprechend vor allem für text\-ba\-sier\-te Anwendungen. Aber auch das \textbf{DNA Sequencing Problem} lässt sich damit einfach bearbeiten. Dabei werden die einzelnen DNA-Proteine als Buchstaben bezeichnet, wodurch sich eine Zeichenkette ergibt, die mithilfe von ent\-sprech\-end\-en COs einfach bearbeitet werden kann. \cite{Survey}
+	
+	Bei einer Zeichenketten-Darstellung der Daten muss man zwischen einer festen Länge der Zeichenkette und einer variablen Länge unterscheiden. Abhängig ist dies vor allem von der Länge der beiden Eltern, also ob die Zeichenketten der Eltern die gleiche oder eine unterschiedliche Länge besitzen.
+	
+	\subsubsection{Zeichenketten mit festen Längen}
+	
+		gelten als einfacher zu Handhaben, weshalb diese Art der Repräsentation deutlich häufiger genutzt wird. Grund hierfür liegt darin, dass nicht entschieden werden muss, welche Gene hinzugefügt oder entfernt werden müssen. Jackson hat in seiner Masterarbeit \cite{COProteins} folgende beiden COs vorgestellt, welche man dafür nutzen kann:
+		
+		\begin{description}
+			\item[C1 Crossover] Ermittelt Sekundärstruktur-Elemente und legt die Schnittpunkte auf unstrukturierte Regionen und trennt somit unterschiedliche Strukturtypen.
+			\item[C2 Crossover] Legt die Schnittpunkte basierend auf der Frequenz der angrenzenden Genompaare der Sekundärstruktur fest.
+		\end{description}
+	
+	\subsubsection{Zeichenketten mit variablen Längen}
+	
+		werden dagegen häufig vor allem im Bereich der biologischen Anwendungen wie die Bearbeitung von DNA- bzw. RNA-Sequenzen genutzt. Dies liegt darin Begründet, dass sich diese Art der Darstellung auch in der Natur wiederfindet, wo Chromosomen ebenfalls unterschiedliche Längen haben. Bei Zeichenketten mit variablen Längen liegt eines der Hauptprobleme in der Entscheidung, welche Gene hinzugefügt und welche Gene entfernt werden sollen, wobei die Gesamtanzahl der Gene der Kinder der Anzahl aller Elterngene entsprechen soll. Dazu gibt es \zB folgende COs, welche hierfür genutzt werden können:
+		
+		%TODO: Abklären ob Paper UnqeualLengthCO soweit passt
+		\begin{description}
+			\item[Internal Crossover] Basiert auf der Annahme, dass Gene der kleineren Sequenz ohne Überhang mit jedem Block der längeren Sequenz angeordnet werden können. \cite{UnequalCO}
+			\item[Equal Crossover] Erzeugt Kinder, welche die gleiche Längen wie die Eltern besitzen. \cite{UnqeualLengthCO}
+			\item[Inside Crossover] Erzeugt Kinder, die länger als der kurze und kürzer als der lange Elternteil sind. \cite{UnqeualLengthCO}
+		\end{description}
