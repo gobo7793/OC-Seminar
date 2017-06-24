@@ -44,7 +44,7 @@ Genetische Algorithmen (GA) sind genauso wie andere Evolutionäre Algorithmen im
 
 Die wichtigen Parameter eines GA selbst sind zum einen die Selektion der Gene, deren Crossover-Operationen (CO) zur Erzeugung neuer Kinder, sowie die Durch\-füh\-rung anschließender Mutationen. Maßgeblich für die Qualität und Effizienz eines GA ist dabei die in Fig. \ref{fig:abb1} markierte CO.
 
-In dieser Seminararbeit soll daher nun ein kleiner Überblick über einige verschiedene COs gegeben werden. Nach einer Übersicht der Klassifikationen im Abschnitt \ref{sec:KlassCO} werden im Abschnitt \ref{sec:EindimRep} zuerst geeignete Anwendungen und dazugehörige COs für eindimensionale, im darauf folgenden Abschnitt \ref{sec:MehrdimRep} für mehrdimensionale Repräsentationen aufgezeigt. Anschließend wird im Abschnitt \ref{sec:AnwSpezCod} ein kurzer Überblick über anwendungsspezifische Codierung sowie im Abschnitt \ref{sec:UnivOp} ein Überblick über universell einsetzbare COs gegeben.
+In dieser Seminararbeit soll daher nun ein kleiner Überblick über einige verschiedene COs gegeben werden. Nach einer Übersicht der Klassifikationen im Abschnitt \ref{sec:KlassCO} werden im Abschnitt \ref{sec:EindimRep} zuerst geeignete Anwendungen und dazugehörige COs für eindimensionale, im darauf folgenden Abschnitt \ref{sec:MehrdimRep} eine Übersicht für mehrdimensionale Repräsentationen aufgezeigt. Anschließend wird im Abschnitt \ref{sec:AnwSpezCod} ein kurzer Überblick über anwendungsspezifische Codierung, sowie im Abschnitt \ref{sec:UnivOp} über universell einsetzbare COs gegeben.
 
 \section{Klassifizierungen von Crossover-Operationen}
 \label{sec:KlassCO}
@@ -56,24 +56,13 @@ In dieser Seminararbeit soll daher nun ein kleiner Überblick über einige versc
 	\label{fig:abb2}
 \end{figure}
 
-COs gibt es für viele verschiedene Arten von Anwendungen und Daten. Nicht alle möglichen Operationen sind jedoch für jede Anwendung und Daten anwendbar. Pavai und Geetha haben in \cite{Survey} bereits sehr gut einen Überblick über die Verschiedenen Arten von COs gegeben, weshalb sich diese Seminararbeit an deren Arbeit orientiert. COs können, wie in Fig. \ref{fig:abb2} dargestellt, in verschiedenen Kategorien klassifiziert werden. Diese Arbeit beschränkt sich auf die repräsentativen Darstellungsformen der Daten und deren entsprechenden COs. Für die kursiv markierten Klassifizierungen wird daher nur ein kurzer Überblick bzw. im Falle der performance-optimierten COs darauf verzichtet.
+COs gibt es für viele verschiedene Arten von Anwendungen und Daten. Nicht alle möglichen Operationen sind jedoch für jede Anwendung und Daten anwendbar. Pavai und Geetha haben in \cite{Survey} bereits sehr gut einen Überblick über die Verschiedenen Arten von COs gegeben, weshalb sich diese Seminararbeit an deren Arbeit orientiert. COs können, wie in Fig. \ref{fig:abb2} dargestellt, in verschiedenen Kategorien klassifiziert werden. Diese Arbeit beschränkt sich auf die eindimensionalen Darstellungsformen der Daten und deren entsprechenden COs. Für die kursiv markierten Klassifizierungen wird daher nur ein kurzer Überblick bzw. im Falle der performance-optimierten COs darauf verzichtet.
 
 Die Basis aller verschiedenen COs bilden die elementaren Operationen, wel\-che die Gene der beiden Eltern an einer oder mehreren Stellen teilen und daraus die neuen Kinder erzeugen. Entsprechend werden sie auch \textit{N-Point-Crossover} bzw. im Speziellen auch \textit{One-Point-Crossover} oder \textit{Two-Point-Crossover} ge\-nannt. Darauf basierend gibt es noch weitere Basis-Operationen, wie \textit{Segmented Cross\-over}, bei der die Gene in eine bestimmte Anzahl Segmente anstatt an einer bestimmten Anzahl an Stellen geteilt werden, \cite{GABasicIdeas} oder wie \textit{Uniform Crossover}, bei der für jede Stelle des Kindes zufällig ausgewählt wird, welcher Elternteil sein Gen vererbt.
 
 \input{eindimRep.tex} % Eindimensionale Rep
 
-\input{mehrdimRep.tex} % Mehrdimensionale Rep
-
-
-\section{Anwendungsspezifische Codierung der Daten}
-\label{sec:AnwSpezCod}
-
-	Kurz anwendungsspezifisches
-
-\section{Universale Crossover-Operationen}
-\label{sec:UnivOp}
-
-	Kurz auf weitere, universal einsetzbare Operationen eingehen (besser am Anfang?)
+\input{weitereRep.tex} % Alle anderen Reps
 
 \section{Zusammenfassung und Ausblick}
 \label{sec:ZusFass}
@@ -84,12 +73,6 @@ Die Basis aller verschiedenen COs bilden die elementaren Operationen, wel\-che d
 
 \bibliographystyle{splncs03} 
 \bibliography{literature}
-
-
-
-
-
-\newpage
 
 \begin{comment}
 \subsection{Grundlagen}
