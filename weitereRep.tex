@@ -29,4 +29,8 @@
 \section{Universale Crossover-Operationen}
 \label{sec:UnivOp}
 
-	Kurz auf weitere, universal einsetzbare Operationen eingehen (besser am Anfang?)
+	Neben den in dieser Seminararbeit vorgestellten spezifischen Darstellungsformen und entsprechenden COs gibt es aber auch noch einige COs, welche nicht auf eine bestimmte Repräsentationsart beschränkt sind, sondern mehrere verschiedene auf gleiche Art und Weise bearbeiten und daraus neue Kinder erzeugen können. Dies trifft zwar auch auf alle elementaren COs wie die \textit{N-Point-Crossover} zu, aber auch auf zahlreiche weitere COs, wie \zB der in \cite{COforPermutations} erwähnte \textit{Sorted Match Crossover}. Diese CO basiert auf den Kosten bzw. Fitness der Eltern und erzeugt neue Kinder, indem er einen Teil eines teuren Elternteils mit einem Teil eines billigen Elternteils kombiniert.
+	
+	Ähnlich wie der \textit{Uniform Crossover Operator} gibt es auch noch weitere COs, bei denen die Gene der Eltern zufallsbasiert vererbt werden. Ziemlich ähnlich funktionieren auch der \textit{Box Crossover} bzw. \textit{Extended Box Crossover}. \cite{BoxCrossover}
+	
+	Zudem besteht auch noch die Möglichkeit, zwei vorhandene COs miteinander zu kombinieren, wobei hier eine aufeinanderfolgende oder eine voneinander unabhängige (Hybride) Ausführung möglich sind. Alternativ besteht auch die Möglichkeit, Heuristik-Basierte COs zu nutzen. Dadurch können auch ursprünglich für eine bestimmte Darstellungsart entwickelte COs universell eingesetzt werden, was die Performance und Qualität der gefundenen Lösungen nicht negativ beeinflussen muss.
