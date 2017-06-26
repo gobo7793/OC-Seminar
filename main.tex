@@ -69,31 +69,13 @@ Die Basis aller verschiedenen COs bilden die elementaren Operationen, wel\-che d
 
 	Neben den hier vorgestellten COs gibt es für alle Darstellungsformen und deren Kategorisierungen noch zahlreiche weitere COs, von denen aufgrund der Länge dieser Seminararbeit viele nicht mal im Ansatz erwähnt wurden bzw. konnten. Wie Anfangs erwähnt haben Pavai und Geetha in \cite{Survey} eine Umfassende Übersicht erstellt, die sich ebenfalls lohnt, wenn man auf der Suche nach einer passenden CO für seine Anwendung ist.
 	
-	Wovon abhängig, was passende Repräsentation ist? einordnende Bewertung
-
+	Natürlich ist nicht jede der vorgestellten Darstellungsformen für alle Anwendungen geeignet, so macht es \zB wenig Sinn, eine TSP-Anwendung mithilfe von Binärcodierung zu entwickeln, obwohl sich diese Codierungsart grundsätzlich für jede Anwendung eignet. Dies liegt zum einen natürlich mit dem dadurch erhöhtem Aufwand zur Konvertierung der Daten zusammen, zum anderen aber auch mit dem Grundsatz, dass sich der Lösungsraum und der Suchraum möglichst gering unterscheiden sollten. \cite{TacklingRealCodedGA} Als Konsequenz daraus sind solche COs, welche direkt den Lösungsraum durchsuchen, am effizientesten.
+	
+	Wichtig ist daher, dass zunächst ermittelt wird, welche Art der Repräsentation für die Daten am geeignetsten ist. Einige Beispiele für Anwendungen wurden für die einzelnen Darstellungsarten bereits genannt, jedoch gibt es auch noch zahlreiche weitere, welche für eine Darstellungsart passend sind. Darauf basierend kann danach entschieden werden, welche CO konkret genutzt wird, wobei auch hier jede Vor- und Nachteile besitzt, wodurch auch nicht jede CO immer geeignet ist. Es ist dabei auch immer eine Frage der Performance, Komplexität und Effizienz, welche Konfiguration für die Anwendung geeignet ist.
+	
+\pagebreak
+	
 \bibliographystyle{splncs03} 
 \bibliography{literature}
-
-\begin{comment}
-\subsection{Grundlagen}
-Text zu Fig.~\ref{fig:abb1}. Siehe Formel~\ref{eq:mean}
-
-\subsubsection{Advantages and Challenges}
-Eine Subsubsection.
-
-
-\begin{figure}
-	\centering
-	\subfloat[Beispielbild 1]{\includegraphics[width=0.5\columnwidth]{./Figures/Organic-Computing.png}}
-	\hfill
-	\subfloat[Beispielbild 2]{\includegraphics[width=0.5\columnwidth]{./Figures/Organic-Computing.png}}
-	\caption{Zwei Beispielbilder.}
-\end{figure}
-
-\begin{equation}
-\label{eq:mean}
-\bar{e} = \frac{1}{N}\sum_{i=1}^N{\lvert f_i - x_i\rvert}
-\end{equation}
-\end{comment}
 
 \end{document}
