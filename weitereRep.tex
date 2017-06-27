@@ -3,19 +3,19 @@
 \section{Mehrdimensionale Repräsentation}
 \label{sec:MehrdimRep}
 
-	Neben einer eindimensionalen Repräsentation der Daten gibt es natürlich auch mehrdimensionale Repräsentationen. Damit sind nicht einfache lineare, sondern komplexere Datenstrukturen gemeint, die entsprechend komplizierter zu Handhaben sind. Da es aber auch Anwendungen gibt, die mehrdimensionale Daten verarbeiten, gibt es auch entsprechende COs, um solche Daten einfach verarbeiten zu können.
+	Neben den verschiedenen eindimensionalen Repräsentationen der Daten gibt es natürlich auch mehrdimensionale Repräsentationsarten. Damit sind nicht einfache lineare, sondern komplexere Datenstrukturen gemeint, die entsprechend komplizierter zu Handhaben sind. Da es aber auch Anwendungen gibt, die mehrdimensionale Daten verarbeiten, gibt es auch entsprechende COs, um solche Daten einfach verarbeiten zu können.
 	
 	\subsubsection{Arrays}
 	\label{sec:Arrays}
 	
-		dürften wohl eine der einfachsten Arten der Mehrdimensionalen Re\-prä\-sen\-ta\-ti\-on\-en darstellen. Sie bilden nicht mehr als eine Verkettung von mehreren linearen Datensätzen. Diese Art der Codierung kann für verschiedene Probleme genutzt werden wie \zB das TSP oder die Suche nach Pareto-Optimaler Lösungen, bei denen nicht alle Zieleigenschaften optimal sein können.
+		dürften wohl eine der einfachsten Arten der Mehrdimensionalen Re\-prä\-sen\-ta\-ti\-on\-en darstellen. Sie bilden nicht mehr als eine Verkettung von mehreren linearen Datensätzen. Diese Art der Codierung kann für verschiedene Probleme genutzt werden wie \zB das TSP oder die Suche nach pareto-optimalen Lösungen, bei denen nicht alle Zieleigenschaften optimal sein können.
 		
-		Die dazu passenden COs heißen \uA \textit{Orthogonal Array Based Crossovers}, von denen es zwei Versionen gibt. Die erste Version heißt \textit{Orthogonal Crossover} (CO) und erzeugt die Kinder, indem die Elterngene basierend auf den Kombinationen eines orthogonalen Array ausgewählt werden. Die zweite Version namens \textit{Main Effect Crossover} (MC) wählt die Kindergene im orthogonalen Array dagegen basierend auf deren Effekte aus, wodurch Kinder mit den besten Haupteffekten der Eltern generiert werden. \cite{ArrayCrossover}
+		Die dazu passenden COs heißen \uA \textit{Orthogonal Array Based Crossovers}, von denen es zwei Versionen gibt. Die erste Version heißt \textit{Orthogonal Crossover} und erzeugt die Kinder, indem die Elterngene basierend auf den Kombinationen eines orthogonalen Array ausgewählt werden. Die zweite Version namens \textit{Main Effect Crossover}  wählt die Kindergene im orthogonalen Array dagegen basierend auf deren Effekte aus, wodurch Kinder mit den besten Haupteffekten der Eltern generiert werden. \cite{ArrayCrossover}
 	
 	\subsubsection{Weitere mehrdimensionale Repräsentationen}
 	\label{sec:WeitereMehrdim}
 	
-		sind beispielsweise \textit{Bäume} oder \textit{Matrizen}, bei denen die Daten entsprechend strukturiert und aufgebaut sind. Beide Darstellungsarten lassen sich \uA auch durch ähnliche COs bearbeiten, wie \zB der \textit{Reijmers Crossover Operator}, welcher aus den Distanzen zwischen den einzelnen Baumknoten eine Distanzen-Matrix erstellt, und diese mit einer vom GA generierten \textit{Correction-Matrix} addiert. \cite{MatrixCO}
+		sind beispielsweise \textit{Bäume} oder \textit{Matrizen}, bei denen die Daten entsprechend strukturiert und aufgebaut sind. Beide Darstellungsarten lassen sich \uA auch durch ähnliche COs bearbeiten, wie \zB den \textit{Reijmers Crossover Operator}, welcher aus den Distanzen zwischen den einzelnen Baumknoten eine Distanzen-Matrix erstellt, und diese mit einer vom GA generierten \textit{Correction-Matrix} addiert. \cite{MatrixCO}
 
 \section{Anwendungsspezifische Codierung der Daten}
 \label{sec:AnwSpezCod}
@@ -29,10 +29,10 @@
 \section{Universale Crossover-Operationen}
 \label{sec:UnivOp}
 
-	Neben den in dieser Seminararbeit vorgestellten spezifischen Darstellungsformen und entsprechenden COs gibt es aber auch noch einige COs, welche nicht auf eine bestimmte Repräsentationsart beschränkt sind, sondern mehrere verschiedene auf gleiche Art und Weise bearbeiten und daraus neue Kinder erzeugen können. Dies trifft zwar auch auf alle elementaren COs wie die \textit{N-Point-Crossover} zu, aber auch auf zahlreiche weitere COs, wie \zB der in \cite{COforPermutations} erwähnte \textit{Sorted Match Crossover}. Diese CO basiert auf den Kosten bzw. Fitness der Eltern und erzeugt neue Kinder, indem er einen Teil eines teuren Elternteils mit einem Teil eines billigen Elternteils kombiniert.
+	Neben den in dieser Seminararbeit vorgestellten spezifischen Darstellungsformen und entsprechenden COs gibt es aber auch noch einige COs, welche nicht auf eine bestimmte Repräsentationsart beschränkt sind, sondern mehrere verschiedene auf gleiche Art und Weise bearbeiten und daraus neue Kinder erzeugen können. Dies trifft zwar auch auf alle elementaren COs wie die \textit{N-Point-Crossover} zu, aber auch auf zahlreiche weitere COs, wie \zB der in \cite{COforPermutations} erwähnte \textit{Sorted Match Crossover}. Diese CO basiert auf den Kosten bzw. Fitness der Eltern und erzeugt neue Kinder, indem er einen Teil eines teuren bzw. guten Elternteils mit einem Teil eines billigen bzw. schlechten Elternteils kombiniert.
 	
-	Ähnlich wie der \textit{Uniform Crossover Operator} gibt es auch noch weitere COs, bei denen die Gene der Eltern zufallsbasiert vererbt werden. Ziemlich ähnlich funktionieren auch der \textit{Box Crossover} bzw. \textit{Extended Box Crossover}, bei denen Ebenfalls zufällig die Gene der Eltern miteinander zu den Kindern kombiniert werden, wobei letzterer einen größeren Suchraum nutzt. \cite{BoxCrossover}
+	Ähnlich wie den \textit{Uniform Crossover Operator} gibt es aber auch noch weitere COs, bei denen die Gene der Eltern zufallsbasiert vererbt werden. Ziemlich ähnlich funktionieren so \zB der \textit{Box Crossover} bzw. \textit{Extended Box Crossover}, bei denen die Gene der Kinder zufällig aus denen der Elternteile ausgewählt werden, wobei letzterer einen größeren Suchraum nutzt. \cite{BoxCrossover}
 	
-	Zudem besteht auch noch die Möglichkeit, zwei vorhandene COs miteinander zu kombinieren, wobei hier eine aufeinanderfolgende oder eine voneinander unabhängige (Hybride) Ausführung möglich sind. Ein Beispiel für eine CO, welcher zwei COs kombiniert wäre der \textit{Uniform Wise Crossover (UWX)}, welcher den \textit{Uniform Crossover} mit dem \textit{Parameter Wise Crossover} kombiniert. \cite{ElectromagneticRealEncoding}
+	Zudem besteht auch noch die Möglichkeit, zwei vorhandene COs miteinander zu kombinieren, wobei hier eine aufeinanderfolgende oder eine voneinander unabhängige (hybride) Ausführung möglich ist. Ein Beispiel für eine CO, welcher zwei COs kombiniert wäre der \textit{Uniform Wise Crossover (UWX)}, welcher den \textit{Uniform Crossover} mit dem \textit{Parameter Wise Crossover} kombiniert. \cite{ElectromagneticRealEncoding}
 	
-	Alternativ besteht auch die Möglichkeit, heuristische COs wie \zB \textit{Adaptive Crossover} zu nutzen, welcher die Fitness-Werte der Elterngene bei der Erzeugung neuer Kinder berücksichtigt.
+	Alternativ können auch heuristische COs genutzt werden. Einer davon ist der \textit{Adaptive Crossover}, welcher die Fitness-Werte der Elterngene bei der Erzeugung neuer Kinder berücksichtigt.

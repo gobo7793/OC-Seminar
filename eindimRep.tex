@@ -3,7 +3,7 @@
 \section{Eindimensionale Repräsentation}
 \label{sec:EindimRep}
 
-Unter eindimensionaler Repräsentation wird vor allem die Darstellung der Daten in den elementaren Datentypen verstanden. Die Daten liegen dabei nur linear in einer bestimmten Reihenfolge vor, wodurch die Handhabung mit den Daten auch entsprechend einfach ist und in vielen Anwendungsfällen ohne große Probleme durchgeführt werden kann und entsprechend oft genutzt wird.
+Unter eindimensionaler Repräsentation wird vor allem die Darstellung der Daten in den elementaren Datentypen verstanden. Die Daten liegen dabei nur linear in einer bestimmten Reihenfolge vor, wodurch die Handhabung mit den Daten auch entsprechend einfach ist und in vielen Anwendungsfällen ohne großen Aufwand durchgeführt werden kann und entsprechend oft genutzt wird.
 
 Zuerst wird im Abschnitt \ref{sec:BinCod} ein Überblick über Anwendungsfälle und mög\-liche COs für die Binär-Codierung gegeben. Anschließend wird in Abschnitt \ref{sec:IntCod} auf ganzzahlige Codierung allgemein bzw. auf Permutationen im Speziellen eingegangen, in Abschnitt \ref{sec:FloatCod} folgen Fließkomma-Darstellungen sowie in \ref{sec:StrCod} Zeichenketten.
 
@@ -18,7 +18,7 @@ Zuerst wird im Abschnitt \ref{sec:BinCod} ein Überblick über Anwendungsfälle 
 		\item[Multimodal Spin Lattice Problem] Suchen eines minimalen Ener\-gie\-zu\-stan\-des für 450 Spins mit je vier Zuständen auf einem 2D-Gitter. \cite{SelectionSchemesSpatialIsolation}
 	\end{description}
 	
-	Passende Crossover-Operationen dafür sind:
+	Passende Crossover-Operationen hierfür sind:
 	\begin{description}
 		\item[Self-Crossover] Tauschen von einzelnen Bits innerhalb des Chromosoms. \cite{SelfCrossover}
 		\item[Supplementary Crossover] Nutzt das \textit{Center of Gravity}-Paradigma um Kin\-der zu erzeugen. \cite{SupplementaryCrossover}
@@ -30,7 +30,7 @@ Zuerst wird im Abschnitt \ref{sec:BinCod} ein Überblick über Anwendungsfälle 
 
 	Da ganzzahlige Werte ebenfalls sehr einfach als Binärwerte dargestellt werden können, können COs für Binärwerte prinzipiell auch für ganzzahlige Werte eingesetzt werden. Natürlich gibt es auch entsprechende Anwendungsfälle und COs, die speziell für ganzzahlige Darstellungen geeignet und optimiert sind, auf die hier aber verzichtet wird und stattdessen auf Ketten von ganzzahligen Werten, also Permutationen, eingegangen wird.
 	
-	Der Unterschied zwischen einfacher ganzzahligen Darstellungen und Permutationen liegt darin, dass bei Permutationen die komplette Zahlenfolge als mehrere aneinandergereihte Zahlen betrachtet werden muss. Entsprechend kön\-nen nicht einfache COs für Binärwerte und einfache ganzzahlige Werte eingesetzt werden, sondern COs, welche die Zahlenketten entsprechend berücksichtigen. Dies ist \uA bei folgenden Anwendungen und Problemen der Fall:
+	Der Unterschied zwischen einfachen, ganzzahligen Darstellungen und Permutationen liegt darin, dass bei Permutationen die komplette Zahlenfolge als mehrere aneinandergereihte Zahlen betrachtet werden muss. Entsprechend kön\-nen nicht einfache COs für Binärwerte und einfache, ganzzahlige Werte eingesetzt werden, sondern COs, welche die Zahlenketten entsprechend berücksichtigen. Dies ist \uA bei folgenden Anwendungen und Problemen der Fall:
 	\begin{description}
 		\item[Traveling Salesman Problem (TSP)] Mehrere Orte, die mit einer möglichst kurzen Strecke miteinander verbunden werden müssen. \cite{GAforTSP}
 		\item[Graph Coloring Problem] Knoten eines Graphen mit möglichst wenig und verschiedenen Farben einfärben. \cite{OrderBasedForGCP}
@@ -63,10 +63,10 @@ Zuerst wird im Abschnitt \ref{sec:BinCod} ein Überblick über Anwendungsfälle 
 		
 		\begin{description}
 			\item[Merging Crossover (MOX)] Beide Eltern werden zuerst zufällig zu\-sam\-men\-ge\-fügt und anschließend in die beiden Kinder geteilt. \cite{OrderBasedForGCP}
-			\item[Non-Wrapping Ordered Crossover] Erstellt Lücken und füllt diese wieder auf, ohne dabei die absolute Reihenfolge der Gene zu verliern. \cite{GAforTSP}
+			\item[Non-Wrapping Ordered Crossover] Erstellt Lücken und füllt diese wieder auf, ohne dabei die absolute Reihenfolge der Gene zu verlieren. \cite{GAforTSP}
 		\end{description}
 	
-		Daneben gibt es auch noch weitere COs, welche sich neben den hier vorgestellten Unterkategorien (verschmelzende und absolute Reihenfolge) \zB in sor\-tier\-ende oder angrenzende, folgenbasierte COs einsortieren lassen.
+		Daneben gibt es auch noch weitere COs, welche sich neben den hier vorgestellten Unterkategorien für folgenbasierte COs (verschmelzende und absolute Reihenfolge) in \zB  sor\-tier\-ende oder angrenzende, folgenbasierte COs einsortieren lassen.
 
 
 \subsection{Codierung als Fließkommazahl}
@@ -90,18 +90,18 @@ Zuerst wird im Abschnitt \ref{sec:BinCod} ein Überblick über Anwendungsfälle 
 		\item[Fuzzy Arithmetic Weighted Mean (FAWM)] Berechnet mithilfe der Fuzzy-Arithmetik die Werte der Kinder. \cite{AirlineRevenueManagement}
 	\end{description}
 	
-	Daneben gibt es aber auch noch einige weitere Arten wie \zB den gewichteten Durchschnitt oder dem \textit{Center of Mass Crossover (CMX)}, welcher den gleichnamigen Ansatz nutzt um mithilfe des Massenzentrums der Eltern neue Kinder zu erzeugen. \cite{MultiParentRecombination} Daneben kann man aber auch verschiedene COs nutzen, um die Kinder zu erzeugen.
+	Daneben gibt es aber auch noch einige weitere Arten wie \zB den gewichteten Durchschnitt oder dem \textit{Center of Mass Crossover (CMX)}, welcher den gleichnamigen Ansatz nutzt um mithilfe des Massenzentrums der Eltern neue Kinder zu erzeugen. \cite{MultiParentRecombination}
 
 \subsection{Codierung als Zeichenkette}
 \label{sec:StrCod}
 	
-	Bei einer Codierung der Daten als eine Zeichenkette werden die einzelnen Gene als Buchstaben codiert. Dies eignet sich daher entsprechend vor allem für text\-ba\-sier\-te Anwendungen. Aber auch das \textbf{DNA Sequencing Problem} lässt sich damit einfach bearbeiten. Dabei werden die einzelnen DNA-Proteine als Buchstaben bezeichnet, wodurch sich eine Zeichenkette ergibt, die mithilfe von ent\-sprech\-end\-en COs einfach bearbeitet werden kann. \cite{Survey}
+	Bei einer Codierung der Daten in einer Zeichenkette werden die Chromosomen als Buchstaben codiert. Dies eignet sich daher entsprechend vor allem für text\-ba\-sier\-te Anwendungen. Aber auch das \textbf{DNA Sequencing Problem} lässt sich damit einfach bearbeiten. Dabei werden die einzelnen DNA-Proteine als Buchstaben bezeichnet, wodurch sich eine Zeichenkette ergibt, die mithilfe von ent\-sprech\-end\-en COs einfach bearbeitet werden kann. \cite{Survey}
 	
 	Bei einer Zeichenketten-Darstellung der Daten muss man zwischen einer festen Länge der Zeichenkette und einer variablen Länge unterscheiden. Abhängig ist dies vor allem von der Länge der beiden Eltern, also ob die Zeichenketten der Eltern die gleiche oder eine unterschiedliche Länge besitzen.
 	
 	\subsubsection{Zeichenketten mit festen Längen}
 	
-		gelten als einfacher zu Handhaben, weshalb diese Art der Repräsentation deutlich häufiger genutzt wird. Grund hierfür liegt darin, dass nicht entschieden werden muss, welche Gene hinzugefügt oder entfernt werden müssen. Jackson hat in seiner Masterarbeit \cite{COProteins} folgende beiden COs vorgestellt, welche man dafür nutzen kann:
+		gelten als einfacher zu Handhaben, weshalb diese Art der Repräsentation deutlich häufiger genutzt wird. Grund hierfür liegt darin, dass nicht entschieden werden muss, welche Gene hinzugefügt oder entfernt werden müssen. Jackson hat in seiner Masterarbeit \cite{COProteins} folgende beiden COs vorgestellt, welche man speziell dafür nutzen kann:
 		
 		\begin{description}
 			\item[C1 Crossover] Ermittelt Sekundärstruktur-Elemente und legt die Schnittpunkte auf unstrukturierte Regionen und trennt somit unterschiedliche Strukturtypen.
