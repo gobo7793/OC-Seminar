@@ -10,22 +10,25 @@
 \begin{document}
 \mainmatter
 
-\title{Eine Übersicht über Crossover-Operationen für genetische Algorithmen\\Seminar Organic Computing}
+\title{Eine Übersicht über Crossover-Operationen\\
+	für genetische Algorithmen\\
+	Seminar Organic Computing}
 \titlerunning{Eine Übersicht über Crossover-Operationen für genetische Algorithmen}  % abbreviated title (for running head)
 
-\author{Gerald Siegert\\Matrikelnummer: 1450117}
+\author{Gerald Siegert\\
+	Matrikelnummer: 1450117}
 \authorrunning{Siegert} % abbreviated author list (for running head)
 \tocauthor{}
 
-\institute{Universität Augsburg\\Lehrstuhl für Organic Computing\\
-\email{student@organic-computing.org}}
+\institute{Universität Augsburg\\
+	Lehrstuhl für Organic Computing}
 
 \maketitle
 
 
 %-------------------------
 \begin{abstract}
-	Crossover-Operationen (CO) sind ein wesentlicher Teil von Genetischen Algorithmen (GA) und sind maßgeblich für deren Effizienz. Daher soll ein kleiner Überblick über verschiedene COs und deren Klassifizierung gegeben werden. Zunächst werden eindimensionale Re\-prä\-sen\-ta\-ti\-on\-en betrachtet. Dabei werden für Darstellungen als Binärwerte, Ganzzahlen bzw. entsprechende Permutationen, Fließkommazahlen und Zeichenketten erläutert, bei welchen Problemen bzw. Anwendungsfällen welche Codierung geeignet ist, und einige der dafür optimierten COs aufgezeigt. Ebenso betrachtet werden mehrdimensionale Re\-prä\-sen\-ta\-ti\-on\-en wie Arrays, Bäume und Matrizen, bei denen eine kurze Übersicht gegeben wird. Ebenso wird auch darauf eingegangen, wann es geeignet ist, anwendungsspezifische Co\-die\-rungen zu nutzen und anzuwenden. Zu\-sätz\-lich werden  einige universell nutzbare COs aufgezeigt, die nicht an eine spezielle Repräsentation der Daten gebunden sind.
+	Crossover-Operationen (CO) sind ein wesentlicher Teil von Genetischen Algorithmen (GA) und sind maßgeblich für deren Effizienz. Daher soll ein kleiner Überblick über verschiedene COs und deren Klassifizierung gegeben werden. Zunächst werden eindimensionale Re\-prä\-sen\-ta\-ti\-on\-en betrachtet. Dabei werden für Darstellungen als Binärwerte, Ganzzahlen bzw. entsprechende Permutationen, Fließkommazahlen und Zeichenketten erläutert, bei welchen Problemen bzw. Anwendungsfällen welche Codierung geeignet ist, und einige der dafür optimierten COs aufgezeigt. Ebenfalls betrachtet werden mehrdimensionale Re\-prä\-sen\-ta\-ti\-on\-en wie Arrays, Bäume und Matrizen, für die eine kurze Übersicht gegeben wird. Ebenfalls wird in einer kurzen Übersicht darauf eingegangen, wann es geeignet ist, anwendungsspezifische Co\-die\-rungen zu nutzen und anzuwenden. Zu\-sätz\-lich werden  einige universell nutzbare COs aufgezeigt, die nicht an eine spezielle Repräsentation der Daten gebunden sind.
 \end{abstract}
 
 \pagebreak
@@ -33,7 +36,7 @@
 \section{Einführung in genetische Algorithmen}
 \label{sec:EinfGA}
 
-	Genetische Algorithmen (GA) sind genauso wie andere Evolutionäre Algorithmen im Allgemeinen aus der Biologie übernommen worden. Wie der Name schon aussagt, basieren sie auf dem Prinzip der Evolution, bei der basierend auf einer Ausgangspopulation möglicher Lösungen neue Kinder erzeugt werden, welche dann die Vorfahren in der Population verdrängen. Welche Vorfahren, oder gar die erzeugten Kinder, dabei konkret verdrängt werden, entscheidet sich anhand einer Fitness-Funktion, bei der die gefundenen Lösungen der Population evaluiert werden und anschließend nur die besten in der Population verweilen dürfen.
+	Genetische Algorithmen (GA) sind genauso wie andere Evolutionäre Algorithmen im Allgemeinen aus der Biologie übernommen worden. Wie der Name schon aussagt, basieren sie auf dem Prinzip der Evolution, bei der basierend auf einer Ausgangspopulation möglicher Lösungen neue Kinder erzeugt werden, welche dann die Vorfahren in der Population verdrängen. Welche Vorfahren, oder gar die erzeugten Kinder, dabei konkret verdrängt werden, entscheidet sich anhand einer Fitness-Funktion, bei der die gefundenen Lösungen der Population evaluiert werden, und anschließend nur die besten in der Population verweilen dürfen.
 	
 	\begin{figure}
 		\centering
@@ -44,7 +47,9 @@
 	
 	Die wichtigen Parameter eines GA selbst sind zum einen die Selektion der Gene, deren Crossover-Operationen (CO) zur Erzeugung neuer Kinder, sowie die Durch\-füh\-rung anschließender Mutationen, um neues Erbmaterial zu generieren. Maßgeblich für die Qualität und Effizienz eines GA ist dabei die in Fig. \ref{fig:abb1} markierte CO.
 	
-	In dieser Seminararbeit soll daher nun ein kleiner Überblick über einige verschiedene COs gegeben werden. Nach einer Übersicht der Klassifikationen im Abschnitt \ref{sec:KlassCO} werden im Abschnitt \ref{sec:EindimRep} zuerst geeignete Anwendungen und dazugehörige COs für eindimensionale, im darauf folgenden Abschnitt \ref{sec:MehrdimRep} eine Übersicht für mehrdimensionale Repräsentationen aufgezeigt. Anschließend wird im Abschnitt \ref{sec:AnwSpezCod} ein kurzer Überblick über anwendungsspezifische Codierung, sowie im Abschnitt \ref{sec:UnivOp} über universell einsetzbare COs gegeben.
+	In dieser Seminararbeit soll daher nun ein kleiner Überblick gegeben werden, für welche Codierung der Daten, Probleme und Anwendungen sich welche COs eignen.
+	%Nach einer Übersicht der Klassifikationen von COs im Allgemeinen im Abschnitt \ref{sec:KlassCO} werden im Abschnitt \ref{sec:EindimRep} zuerst geeignete Anwendungen und dazugehörige COs für eindimensionale, im darauf folgenden Abschnitt \ref{sec:MehrdimRep} eine Übersicht für mehrdimensionale Repräsentationen aufgezeigt. Anschließend wird im Abschnitt \ref{sec:AnwSpezCod} ein kurzer Überblick über anwendungsspezifische Codierung, sowie im Abschnitt \ref{sec:UnivOp} über universell einsetzbare COs gegeben.
+	Dabei wird im Abschnitt \ref{sec:KlassCO} zunächst eine Übersicht über die grundlegenden Klassifikationen gegeben, bevor im Abschnitt \ref{sec:EindimRep} eindimensionale und im Abschnitt \ref{sec:MehrdimRep} mehrdimensionale Repräsentationen behandelt werden. Abschließend werden im Abschnitt \ref{sec:AnwSpezCod} anwendungsspezifische und im Abschnitt \ref{sec:UnivOp} universelle COs aufgezeigt.
 
 \section{Klassifizierungen von Crossover-Operationen}
 \label{sec:KlassCO}
@@ -56,7 +61,7 @@
 		\label{fig:abb2}
 	\end{figure}
 	
-	COs gibt es für viele verschiedene Arten von Anwendungen und Daten. Jedoch sind nicht alle möglichen Operationen für jede Anwendung und Daten\-art ge\-ei\-gnet. Pavai und Geetha haben daher in \cite{Survey} bereits einen sehr umfassenden Überblick über die verschiedenen Arten von COs gegeben, weshalb sich diese Seminararbeit an deren Arbeit orientiert. COs können, wie in Fig. \ref{fig:abb2} dargestellt, in verschiedenen Kategorien klassifiziert werden. Diese Arbeit befasst sich hauptsächlich mit eindimensionalen Darstellungsformen der Daten und deren entsprechenden COs. Für die kursiv markierten Klassifizierungen wird daher nur ein kurzer Überblick bzw. im Falle der performance-optimierten COs darauf verzichtet.
+	COs gibt es für viele verschiedene Arten von Anwendungen und Daten. Jedoch sind nicht alle möglichen Operationen für jede Anwendung und Daten\-art ge\-ei\-gnet. Pavai und Geetha haben daher in \cite{Survey} bereits einen sehr umfassenden Überblick über die verschiedenen Arten von COs gegeben, weshalb sich diese Seminararbeit an deren Arbeit orientiert.	Die COs können dazu in die in Fig. \ref{fig:abb2} gezeigten Kategorien eingeteilt werden. Da für die Daten häufig eindimensionale Darstellungsformen genutzt werden, befasst sich diese Seminararbeit hauptsächlich mit diesen Codierungen. Für die kursiv markierten Klassifizierungen wird daher nur ein kurzer Überblick bzw. im Falle der performance-optimierten COs darauf verzichtet.
 	
 	Die Basis aller verschiedenen COs bilden die elementaren Operationen, wel\-che die Gene der beiden Eltern an einer oder mehreren Stellen teilen und daraus die neuen Kinder erzeugen. Entsprechend werden sie auch \textit{N-Point-Crossover} bzw. im Speziellen auch \textit{One-Point-Crossover} bzw. \textit{Two-Point-Crossover} ge\-nannt. Darauf basierend gibt es noch weitere Basis-Operationen, wie \textit{Segmented Cross\-over}, bei der die Gene in eine bestimmte Anzahl Segmente anstatt an einer bestimmten Anzahl an Stellen geteilt werden, \cite{GABasicIdeas} oder wie \textit{Uniform Crossover}, bei der für jedes Gen des Kindes zufällig ausgewählt wird, von welchem Elternteil das Gen vererbt wird.
 
@@ -69,9 +74,9 @@
 
 	Neben den hier vorgestellten COs gibt es für alle Darstellungsformen und deren Kategorisierungen noch zahlreiche weitere COs, von denen aufgrund der Länge dieser Seminararbeit viele nicht im Ansatz erwähnt wurden bzw. konnten. Wie Anfangs erwähnt haben Pavai und Geetha in \cite{Survey} eine ausführliche Übersicht erstellt, die sich ebenfalls lohnt, wenn man auf der Suche nach einer passenden CO für seine Anwendung ist.
 	
-	Natürlich ist nicht jede der vorgestellten Darstellungsformen für alle Anwendungen geeignet, so macht es \zB wenig Sinn, eine TSP-Anwendung mithilfe von Binärcodierung zu entwickeln, obwohl sich diese Codierungsart prinzipiell für jede Anwendung eignet. Dies liegt zum einen natürlich mit dem dadurch erhöhtem Aufwand zur Konvertierung der Daten zusammen, zum anderen aber auch mit dem Grundsatz, dass sich der Lösungsraum und der Suchraum möglichst gering unterscheiden sollten. \cite{TacklingRealCodedGA} Als Konsequenz daraus sind solche COs, welche direkt den Lösungsraum durchsuchen, am effizientesten. Es ist daher immer vom konkreten Problemfall abhängig, ob sich statt einer Binärcodierung bzw. einer universellen CO nicht besser eine darstellungs-spezifische CO eignet.
+	Natürlich ist nicht jede der vorgestellten Darstellungsformen für alle Anwendungen geeignet, so macht es \zB wenig Sinn, eine TSP-Anwendung mithilfe von Binärcodierung oder mit einer elementaren bzw. universellen CO zu entwickeln, obwohl sich dies prinzipiell für jede Anwendung eignet. Dies liegt vor allem am Grundsatz, dass sich der Lösungsraum und der Suchraum möglichst gering unterscheiden sollten. \cite{TacklingRealCodedGA} Als Konsequenz daraus sind COs, welche direkt den Lösungsraum durchsuchen, am effizientesten, da dadurch der Aufwand für die Konvertierung der Daten entfällt. Aber auch die Auswahl zwischen geeigneten COs ist eine Frage der Effizienz, da eine CO für eine konkrete Anwendung effizienter sein kann als eine andere geeignete CO.
 	
-	Es spielt auch immer eine Rolle, ob es geeignet ist, eine anwendungsspezifische Codierung zu nutzen oder eine Standard-Codierung wie die hier vorgestellten ein- oder mehrdimensionalen Codierungen. Je nachdem wird dadurch ebenfalls die Gesamtperformance und -effizienz der Anwendung beeinflusst. Aus diesem Grund bietet sich aufgrund der einfachen Implementation zwar oftmals eine eindimensionale Codierung an, welche aber nicht immer die effizienteste sein muss. Man muss daher immer im Einzelfall abwägen, ob es nicht besser wäre, eine anwendungsspezifische Codierung und CO zu nutzen.
+	Es spielt auch eine Rolle, ob es angebracht ist, eine anwendungsspezifische Codierung zu nutzen anstatt einer Standard-Codierung, da eine spezifische Codierung je nach Anwendung die Performance enorm steigern kann. Daher bietet sich aufgrund der einfachen Implementation zwar oftmals eine eindimensionale Codierung an, welche aber nicht immer die effizienteste sein muss. Man muss daher immer im Einzelfall abwägen, ob eine anwendungsspezifische Codierung und CO effizienter wäre als eine Standard-Codierung.
 	
 \pagebreak
 	
