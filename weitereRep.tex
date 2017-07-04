@@ -3,7 +3,7 @@
 \section{Mehrdimensionale Repräsentation}
 \label{sec:MehrdimRep}
 
-	Neben den verschiedenen eindimensionalen Repräsentationen der Daten gibt es natürlich auch mehrdimensionale Repräsentationsarten. Damit sind nicht lineare, sondern komplexere Datenstrukturen gemeint, die entsprechend komplizierter zu Handhaben sind. Da es aber auch Anwendungen gibt, die mehrdimensionale Daten verarbeiten, gibt es auch entsprechende COs, um solche Daten einfach verarbeiten zu können.
+	Neben den verschiedenen eindimensionalen Repräsentationen der Daten gibt es natürlich auch mehrdimensionale Repräsentationsarten. Damit sind nicht lineare, sondern komplexere Datenstrukturen gemeint, die entsprechend kom\-pli\-zier\-ter zu Handhaben sind. Da es aber auch Anwendungen gibt, die mehrdimensionale Daten verarbeiten, gibt es auch entsprechende COs, um solche Daten einfach verarbeiten zu können.
 	
 	\subsubsection{Arrays}
 	\label{sec:Arrays}
@@ -20,16 +20,16 @@
 \section{Anwendungsspezifische Codierung der Daten}
 \label{sec:AnwSpezCod}
 
-	Natürlich muss man nicht immer eine der üblichen ein- oder mehrdimensionalen Repräsentationsformen nutzen, wenn man einen GA entwickeln möchte. Es gibt auch Anwendungsfälle wie \zB in der Robotik, \cite{GABook} bei denen es geeigneter ist, eine speziell für die Anwendung zugeschnittene und optimierte Daten-Codierung zu nutzen.
+	Natürlich muss man nicht immer eine der üblichen ein- oder mehrdimensionalen Repräsentationsformen nutzen, wenn man einen GA entwickeln möchte. Es gibt auch Anwendungsfälle wie \zB in der Robotik, \cite{GABook} bei denen eine speziell für die Anwendung zugeschnittene und optimierte Daten-Codierung geeigneter sein kann.
 	
-	Die einfachste Variante dafür ist eine Art hybride Codierung zu nutzen, bei der zwei lineare Darstellungsformen miteinander kombiniert werden. Aguilar-Ruiz et al. haben dies in ihrer Arbeit \cite{NaturalCoding} gemacht und diskrete und kontinuierliche Darstellungsformen miteinander kombiniert, unterscheiden ihre \textit{Natural Encoding} jedoch von anderen hybriden Codierungen. Dennoch funktioniert ihr dabei entwickelter GA für klassische hybride und die \textit{Natural Encoding}.
+	Die einfachste Variante dafür ist eine Art hybride Codierung zu nutzen, bei der zwei lineare Darstellungsformen miteinander kombiniert werden. Aguilar-Ruiz et al. haben dies in ihrer Arbeit \cite{NaturalCoding} gemacht und diskrete und kontinuierliche Darstellungsformen miteinander kombiniert, unterscheiden ihre \textit{Natural Encoding} jedoch von anderen hybriden Codierungen. Dennoch funktioniert ihr dafür entwickelter GA auch für andere hybride Darstellungsformen.
 	
 	Daneben gibt es aber noch zahlreiche weitere Möglichkeiten, die Daten anwendungsspezifisch zu codieren. Einige davon wären \zB \textit{Restricted Growth Function}-basierte Techniken und COs, \cite{RestrictedGrowthFunction} oder die Mög\-lich\-keit, Fuzzy-Logiken zu nutzen. \cite{FuzzyEncoding}
 
 \section{Universale Crossover-Operationen}
 \label{sec:UnivOp}
 
-	Neben den in dieser Seminararbeit vorgestellten spezifischen Darstellungsformen und entsprechenden COs gibt es aber auch noch einige COs, welche nicht auf eine bestimmte Repräsentationsart beschränkt sind, sondern mehrere verschiedene auf gleiche Art und Weise bearbeiten und daraus neue Kinder erzeugen können. Dies trifft zwar auch auf alle elementaren COs wie die \textit{N-Point-Crossover} zu, aber auch auf zahlreiche weitere COs, wie \zB der in \cite{COforPermutations} erwähnte \textit{Sorted Match Crossover}. Diese CO basiert auf den Kosten bzw. Fitness der Eltern und erzeugt neue Kinder, indem ein Teil eines teuren bzw. guten Elternteils mit einem Teil eines billigen bzw. schlechten Elternteils kombiniert werden.
+	Neben den in dieser Seminararbeit vorgestellten spezifischen Darstellungsformen und entsprechenden COs gibt es aber auch noch einige COs, welche nicht auf eine bestimmte Repräsentationsart beschränkt sind, sondern verschiedene auf gleiche Art und Weise bearbeiten und daraus neue Kinder erzeugen können. Dies trifft zwar auch auf alle elementaren COs wie die \textit{N-Point-Crossover} zu, aber auch auf zahlreiche weitere COs, wie \zB der in \cite{COforPermutations} erwähnte \textit{Sorted Match Crossover}. Diese CO basiert auf den Kosten bzw. Fitness der Eltern und erzeugt neue Kinder, indem ein Teil eines teuren bzw. guten Elternteils mit einem Teil eines billigen bzw. schlechten Elternteils kombiniert wird.
 	
 	Ähnlich wie den \textit{Uniform Crossover Operator} gibt es aber auch noch weitere COs, bei denen die Gene der Eltern zufallsbasiert vererbt werden. Ziemlich ähnlich funktionieren so \zB der \textit{Box Crossover} bzw. \textit{Extended Box Crossover}, bei denen die Gene der Kinder zufällig aus denen der Elternteile ausgewählt werden, wobei letzterer einen größeren Suchraum nutzt. \cite{BoxCrossover}
 	
