@@ -5,7 +5,7 @@
     <id>UMLClass</id>
     <coordinates>
       <x>190</x>
-      <y>70</y>
+      <y>80</y>
       <w>120</w>
       <h>40</h>
     </coordinates>
@@ -32,7 +32,7 @@ berechnen</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>540</x>
+      <x>550</x>
       <y>150</y>
       <w>120</w>
       <h>40</h>
@@ -47,7 +47,7 @@ gefunden</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>190</x>
-      <y>230</y>
+      <y>220</y>
       <w>120</w>
       <h>40</h>
     </coordinates>
@@ -60,7 +60,7 @@ Mutation</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>280</x>
-      <y>290</y>
+      <y>280</y>
       <w>120</w>
       <h>40</h>
     </coordinates>
@@ -74,7 +74,7 @@ bg=yellow</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>370</x>
-      <y>230</y>
+      <y>220</y>
       <w>120</w>
       <h>40</h>
     </coordinates>
@@ -87,12 +87,12 @@ Selektion</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>240</x>
-      <y>100</y>
+      <y>110</y>
       <w>30</w>
-      <h>70</h>
+      <h>60</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -111,18 +111,18 @@ Selektion</panel_attributes>
       <x>420</x>
       <y>190</y>
       <w>50</w>
-      <h>60</h>
+      <h>50</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-nein
+  nein
 </panel_attributes>
-    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;30.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>390</x>
-      <y>260</y>
+      <y>250</y>
       <w>60</w>
       <h>70</h>
     </coordinates>
@@ -133,7 +133,7 @@ nein
     <id>Relation</id>
     <coordinates>
       <x>240</x>
-      <y>260</y>
+      <y>250</y>
       <w>60</w>
       <h>70</h>
     </coordinates>
@@ -146,10 +146,10 @@ nein
       <x>240</x>
       <y>180</y>
       <w>30</w>
-      <h>70</h>
+      <h>60</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
   </element>
   <element>
     <id>Text</id>
@@ -181,11 +181,11 @@ gut genug?</panel_attributes>
     <coordinates>
       <x>490</x>
       <y>150</y>
-      <w>70</w>
+      <w>80</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 ja</panel_attributes>
-    <additional_attributes>50.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>60.0;20.0;10.0;20.0</additional_attributes>
   </element>
 </diagram>
